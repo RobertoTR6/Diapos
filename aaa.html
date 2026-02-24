@@ -1,1869 +1,2286 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Presentación: Estrategia Hídrica Perú 2030</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;800&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;800&display=swap");
 
-        :root {
-            --primary: #f8fafc;
-            --secondary: #f1f5f9;
-            --accent: #1e3a8a;
-            --highlight: #2563eb;
-            --text-main: #0f172a;
-            --text-muted: #334155;
-            --glass: rgba(255, 255, 255, 0.9);
-            --border: rgba(15, 23, 42, 0.12);
-            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+      :root {
+        --primary: #f8fafc;
+        --secondary: #f1f5f9;
+        --accent: #1e3a8a;
+        --highlight: #2563eb;
+        --text-main: #0f172a;
+        --text-muted: #334155;
+        --glass: rgba(255, 255, 255, 0.9);
+        --border: rgba(15, 23, 42, 0.12);
+        --shadow:
+          0 10px 15px -3px rgba(0, 0, 0, 0.04),
+          0 4px 6px -2px rgba(0, 0, 0, 0.02);
+      }
+
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background-color: #e2e8f0;
+        /* Stage color */
+        color: var(--text-main);
+        overflow: hidden;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .bg-mesh {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      }
+
+      .slide {
+        display: none;
+        width: 92vw;
+        height: 88vh;
+        max-width: 1440px;
+        max-height: 820px;
+        background: white;
+        padding: 3.5rem 6rem;
+        /* Strategic padding */
+        box-sizing: border-box;
+        border-radius: 2.5rem;
+        box-shadow:
+          0 50px 100px -20px rgba(15, 23, 42, 0.12),
+          0 30px 60px -30px rgba(0, 0, 0, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        position: relative;
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.98)),
+          url("peru_water_light_background_1771877084386.png") center/cover
+            no-repeat;
+        overflow: hidden;
+      }
+
+      .slide.active {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .glass {
+        background: var(--glass);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid var(--border);
+        border-radius: 1.25rem;
+        box-shadow: var(--shadow);
+      }
+
+      .stat-card {
+        transition: all 0.3s ease;
+      }
+
+      .stat-card:hover {
+        border-color: var(--highlight);
+        transform: translateY(-4px);
+        background: white;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      }
+
+      .progress-bar-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: rgba(15, 23, 42, 0.05);
+        z-index: 100;
+      }
+
+      .progress-bar {
+        height: 100%;
+        background: var(--highlight);
+        width: 0%;
+        transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .meta-tag {
+        font-size: 0.75rem;
+        font-weight: 800;
+        color: var(--highlight);
+        text-transform: uppercase;
+        letter-spacing: 0.25em;
+        margin-bottom: 1.5rem;
+        display: block;
+      }
+
+      .title-executive {
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+        color: var(--text-main);
+      }
+
+      .reveal {
+        animation: slideUpFade 1s both cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .delay-1 {
+        animation-delay: 0.1s;
+      }
+
+      .delay-2 {
+        animation-delay: 0.2s;
+      }
+
+      .delay-3 {
+        animation-delay: 0.3s;
+      }
+
+      .delay-4 {
+        animation-delay: 0.4s;
+      }
+
+      @keyframes slideUpFade {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
         }
 
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #E2E8F0;
-            /* Stage color */
-            color: var(--text-main);
-            overflow: hidden;
-            margin: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100vw;
-            height: 100vh;
-            -webkit-font-smoothing: antialiased;
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
+      }
 
-        .bg-mesh {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-        }
+      .nav-btn {
+        background: white;
+        border: 1px solid var(--border);
+        color: var(--text-muted);
+        padding: 0.8rem;
+        border-radius: 0.75rem;
+        transition: all 0.2s ease;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+      }
 
-        .slide {
-            display: none;
-            width: 92vw;
-            height: 88vh;
-            max-width: 1440px;
-            max-height: 820px;
-            background: white;
-            padding: 3.5rem 6rem;
-            /* Strategic padding */
-            box-sizing: border-box;
-            border-radius: 2.5rem;
-            box-shadow: 0 50px 100px -20px rgba(15, 23, 42, 0.12),
-                0 30px 60px -30px rgba(0, 0, 0, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            position: relative;
-            background: linear-gradient(rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.98)),
-                url("peru_water_light_background_1771877084386.png") center/cover no-repeat;
-            overflow: hidden;
-        }
+      .nav-btn:hover {
+        background: var(--secondary);
+        color: var(--text-main);
+        border-color: rgba(15, 23, 42, 0.2);
+      }
 
-        .slide.active {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+      .nav-btn-primary {
+        background: var(--highlight);
+        border-color: var(--highlight);
+        color: white;
+      }
 
-        .glass {
-            background: var(--glass);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--border);
-            border-radius: 1.25rem;
-            box-shadow: var(--shadow);
-        }
+      .nav-btn-primary:hover {
+        background: #1d4ed8;
+        transform: scale(1.02);
+        color: white;
+      }
 
-        .stat-card {
-            transition: all 0.3s ease;
-        }
+      .breadcrumb {
+        position: fixed;
+        top: 2rem;
+        right: 6rem;
+        font-size: 0.7rem;
+        color: var(--highlight);
+        font-weight: 800;
+        background: white;
+        padding: 0.5rem 1rem;
+        border-radius: 2rem;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        letter-spacing: 0.05em;
+      }
 
-        .stat-card:hover {
-            border-color: var(--highlight);
-            transform: translateY(-4px);
-            background: white;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        }
+      /* Crisis Infography Styles - Light Theme */
+      .infografia-crisis {
+        position: relative;
+        color: #0f172a;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
 
-        .progress-bar-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: rgba(15, 23, 42, 0.05);
-            z-index: 100;
-        }
+      .hero-title-v2 {
+        text-align: left;
+        margin-bottom: 1.5rem;
+      }
 
-        .progress-bar {
-            height: 100%;
-            background: var(--highlight);
-            width: 0%;
-            transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+      .hero-title-v2 h1 {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+        color: #1e3a8a;
+      }
 
-        .meta-tag {
-            font-size: 0.75rem;
-            font-weight: 800;
-            color: var(--highlight);
-            text-transform: uppercase;
-            letter-spacing: 0.25em;
-            margin-bottom: 1.5rem;
-            display: block;
-        }
+      .hero-title-v2 h2 {
+        font-size: 1.7rem;
+        font-weight: 600;
+        color: #475569;
+      }
 
-        .title-executive {
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            line-height: 1.1;
-            color: var(--text-main);
-        }
+      .highlight-blue {
+        color: #2563eb;
+        font-weight: 800;
+      }
 
-        .reveal {
-            animation: slideUpFade 1s both cubic-bezier(0.16, 1, 0.3, 1);
-        }
+      .content-grid-v2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1.2fr;
+        gap: 1.5rem;
+        flex-grow: 1;
+        align-items: stretch;
+      }
 
-        .delay-1 {
-            animation-delay: 0.1s;
-        }
+      .main-stat-v2 {
+        background: white;
+        padding: 3rem 2rem;
+        border-radius: 2rem;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(37, 99, 235, 0.1);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-top: 8px solid #2563eb;
+      }
 
-        .delay-2 {
-            animation-delay: 0.2s;
-        }
+      .num-xl {
+        font-size: 4.2rem;
+        font-weight: 900;
+        color: #1e3a8a;
+        line-height: 1;
+        margin-bottom: 1rem;
+      }
 
-        .delay-3 {
-            animation-delay: 0.3s;
-        }
+      .subtext-xl {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #64748b;
+        line-height: 1.2;
+      }
 
-        .delay-4 {
-            animation-delay: 0.4s;
-        }
+      .context-column {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
 
-        @keyframes slideUpFade {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
+      .stat-card-light {
+        background: white;
+        padding: 2rem;
+        border-radius: 1.5rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+      .stat-card-light h3 {
+        font-size: 2.8rem;
+        font-weight: 900;
+        color: #2563eb;
+        margin-bottom: 0.25rem;
+      }
 
-        .nav-btn {
-            background: white;
-            border: 1px solid var(--border);
-            color: var(--text-muted);
-            padding: 0.8rem;
-            border-radius: 0.75rem;
-            transition: all 0.2s ease;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-        }
+      .stat-card-light p {
+        font-size: 1.1rem;
+        color: #64748b;
+        font-weight: 600;
+      }
 
-        .nav-btn:hover {
-            background: var(--secondary);
-            color: var(--text-main);
-            border-color: rgba(15, 23, 42, 0.2);
-        }
+      .ranking-box-light {
+        background: #eff6ff;
+        padding: 2rem;
+        border-radius: 1.5rem;
+        border-left: 5px solid #2563eb;
+        flex-grow: 1;
+      }
 
-        .nav-btn-primary {
-            background: var(--highlight);
-            border-color: var(--highlight);
-            color: white;
-        }
+      .ranking-box-light p {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #1e40af;
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
 
-        .nav-btn-primary:hover {
-            background: #1d4ed8;
-            transform: scale(1.02);
-            color: white;
-        }
+      .impact-column {
+        background: #1e3a8a;
+        color: white;
+        padding: 3rem;
+        border-radius: 2.5rem;
+        box-shadow: 0 25px 50px -12px rgba(30, 58, 138, 0.25);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
 
-        .breadcrumb {
-            position: fixed;
-            top: 2rem;
-            right: 6rem;
-            font-size: 0.7rem;
-            color: var(--highlight);
-            font-weight: 800;
-            background: white;
-            padding: 0.5rem 1rem;
-            border-radius: 2rem;
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow);
-            letter-spacing: 0.05em;
-        }
+      .impact-column h3 {
+        font-size: 1.5rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        color: #bfdbfe;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
 
-        /* Crisis Infography Styles - Light Theme */
+      .impact-list {
+        list-style: none;
+        padding: 0;
+        display: grid;
+        gap: 1.5rem;
+      }
+
+      .impact-list li {
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+        font-size: 1.15rem;
+        font-weight: 600;
+      }
+
+      .icon-box {
+        width: 44px;
+        height: 44px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #64b5f6;
+      }
+
+      .img-grid-evidence {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .img-grid-evidence img {
+        width: 100%;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 1rem;
+        border: 2px solid #f1f5f9;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .img-grid-evidence img:hover {
+        transform: scale(1.05);
+        border-color: #2563eb;
+      }
+
+      .cta-footer-v2 {
+        padding: 2rem;
+        text-align: center;
+        background: white;
+        border-radius: 1.5rem;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(30, 58, 138, 0.1);
+        margin-top: 1rem;
+      }
+
+      .cta-footer-v2 p {
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: #1e3a8a;
+        font-style: italic;
+      }
+
+      /* Identical Metrics Cards Styles */
+      .metrics-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem;
+        margin-bottom: 1.25rem;
+      }
+
+      .identical-card {
+        background: white;
+        border-radius: 1.5rem;
+        padding: 1.5rem 2rem;
+        position: relative;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 180px;
+      }
+
+      .identical-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 10px;
+        border-radius: 1.5rem 1.5rem 0 0;
+      }
+
+      .card-red::before {
+        background: #dc2626;
+      }
+
+      .card-orange::before {
+        background: #d97706;
+      }
+
+      .card-label-v3 {
+        font-size: 0.9rem;
+        font-weight: 800;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.75rem;
+        text-transform: uppercase;
+      }
+
+      .card-red .card-label-v3 {
+        color: #dc2626;
+      }
+
+      .card-orange .card-label-v3 {
+        color: #d97706;
+      }
+
+      .card-main-val {
+        font-size: 5.5rem;
+        font-weight: 900;
+        line-height: 1;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: baseline;
+        gap: 0.5rem;
+      }
+
+      .card-red .card-main-val {
+        color: #dc2626;
+      }
+
+      .card-orange .card-main-val {
+        color: #d97706;
+      }
+
+      .unit-text {
+        font-size: 2.5rem;
+        font-weight: 800;
+      }
+
+      .card-sub-info {
+        color: #64748b;
+        font-size: 1.2rem;
+        font-weight: 500;
+        line-height: 1.4;
+      }
+
+      .card-sub-info strong {
+        color: #0f172a;
+        font-weight: 800;
+      }
+
+      .wave-bg {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 150px;
+        height: 100px;
+        background: radial-gradient(
+          circle at 100% 100%,
+          rgba(220, 38, 38, 0.03) 0%,
+          transparent 70%
+        );
+        z-index: 0;
+      }
+
+      .card-orange .wave-bg {
+        background: radial-gradient(
+          circle at 100% 100%,
+          rgba(217, 119, 6, 0.03) 0%,
+          transparent 70%
+        );
+      }
+
+      /* Ranking Cards Styles - Identical to Image */
+      .ranking-container-v6 {
+        display: grid;
+        grid-template-columns: 1fr 1.4fr;
+        gap: 1.5rem;
+        margin-top: 1rem;
+        align-items: stretch;
+      }
+
+      .rank-stack-v6 {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .rank-card-v6 {
+        background: white;
+        border-radius: 1rem;
+        padding: 0.75rem 1.25rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+        border: 1px solid rgba(0, 0, 0, 0.04);
+        flex-grow: 1;
+      }
+
+      .rank-icon-circle-v6 {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .rank-text-v6 h4 {
+        font-size: 1.4rem;
+        font-weight: 800;
+        line-height: 1.1;
+      }
+
+      .rank-text-v6 p {
+        font-size: 1.05rem;
+        color: #64748b;
+        font-weight: 500;
+        line-height: 1.2;
+      }
+
+      .evidence-side-v6 {
+        border-radius: 1.25rem;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .evidence-side-v6 img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .evidence-side-v6 .overlay-v6 {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+        padding: 1rem;
+        color: white;
+        font-size: 0.75rem;
+        font-weight: 700;
+      }
+
+      .ranking-row-v4 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        margin-top: 1rem;
+      }
+
+      .rank-card {
+        background: white;
+        border-radius: 1.25rem;
+        padding: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .rank-icon-circle {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .bg-orange-soft {
+        background: #fff7ed;
+        color: #d97706;
+      }
+
+      .bg-red-soft {
+        background: #fef2f2;
+        color: #dc2626;
+      }
+
+      .rank-text h4 {
+        font-size: 1.4rem;
+        font-weight: 800;
+        line-height: 1.2;
+      }
+
+      .text-orange-rank {
+        color: #d97706;
+      }
+
+      .text-red-rank {
+        color: #dc2626;
+      }
+
+      .rank-text p {
+        font-size: 1rem;
+        color: #64748b;
+        font-weight: 500;
+        line-height: 1.3;
+      }
+
+      .evidence-banner-v4 {
+        margin-top: 2rem;
+        border-radius: 2rem;
+        overflow: hidden;
+        height: 180px;
+        position: relative;
+        box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+      }
+
+      .evidence-banner-v4 img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .evidence-banner-v4 .overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to right,
+          rgba(15, 23, 42, 0.6),
+          transparent
+        );
+        padding: 2rem;
+        display: flex;
+        align-items: flex-end;
+      }
+
+      .evidence-banner-v4 span {
+        color: white;
+        font-weight: 700;
+        font-size: 1.1rem;
+        letter-spacing: 0.05em;
+      }
+
+      /* Impact Section V5 - Compact \u0026 Identical to Image */
+      .impact-v5 {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        height: 100%;
+      }
+
+      .consequence-box-v5 {
+        background: #f1f5f9;
+        border-left: 6px solid #1e3a8a;
+        padding: 1rem 1.25rem;
+        border-radius: 0.75rem;
+      }
+
+      .consequence-box-v5 .tag-v5 {
+        color: #64748b;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 0.4rem;
+        display: block;
+      }
+
+      .consequence-box-v5 p {
+        font-size: 1.15rem;
+        color: #1e3a8a;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      .consequence-box-v5 strong {
+        color: #3b82f6;
+        font-weight: 900;
+      }
+
+      .impact-card-v5 {
+        background: white;
+        padding: 0.75rem 1.25rem;
+        border-radius: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        transition: all 0.2s ease;
+        flex-grow: 1;
+      }
+
+      .impact-card-v5:hover {
+        transform: scale(1.01);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      }
+
+      .icon-sq-v5 {
+        width: 52px;
+        height: 52px;
+        border-radius: 0.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .bg-b-50 {
+        background: #eef2ff;
+        color: #4f46e5;
+      }
+
+      .bg-g-50 {
+        background: #f0fdf4;
+        color: #16a34a;
+      }
+
+      .bg-y-50 {
+        background: #fffbeb;
+        color: #d97706;
+      }
+
+      .card-info-v5 h4 {
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: #1e293b;
+      }
+
+      .card-info-v5 p {
+        font-size: 1.1rem;
+        color: #64748b;
+        font-weight: 500;
+      }
+
+      .arrow-v5 {
+        color: #e2e8f0;
+        margin-left: auto;
+      }
+
+      /* Global Slide Harmony V8 */
+      .global-slide-v8 {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        height: 100%;
+        width: 100%;
+      }
+
+      .section-header-v8 {
+        border-left: 6px solid #2563eb;
+        padding-left: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .section-header-v8 h2 {
+        font-size: 2.2rem;
+        font-weight: 900;
+        color: #0f172a;
+        letter-spacing: -0.01em;
+      }
+
+      .section-label-v8 {
+        font-size: 0.8rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: #2563eb;
+        margin-bottom: 0.5rem;
+        display: block;
+      }
+
+      .grid-v8-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+      }
+
+      .grid-v8-4 {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.25rem;
+      }
+
+      /* Slide 2: Diagnosis System V8 */
+      .slide-diagnosis {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        /* Compact gap */
+        height: 100%;
+      }
+
+      .diag-header-v8 {
+        border-left: 8px solid #2563eb;
+        padding-left: 1.5rem;
+        margin-bottom: 0.25rem;
+        /* Reduced */
+      }
+
+      .diag-header-v8 h1 {
+        font-size: 1.8rem;
+        /* Compact */
+        font-weight: 900;
+        color: #0f172a;
+        letter-spacing: -0.01em;
+      }
+
+      .diag-grid-v8 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1.5rem;
+        flex-grow: 1;
+      }
+
+      .diag-section-v8 {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        /* More compact */
+      }
+
+      .diag-label-v8 {
+        font-size: 0.8rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: #64748b;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      /* Central Problem Component */
+      .problem-bridge-v8 {
+        background: #1e3a8a;
+        color: white;
+        padding: 0.75rem 2rem;
+        /* Thinned */
+        border-radius: 1.25rem;
+        text-align: center;
+        position: relative;
+        box-shadow: 0 10px 25px rgba(30, 58, 138, 0.2);
+        margin: 0.25rem 0;
+        /* Minimal */
+      }
+
+      .problem-bridge-v8 h2 {
+        font-size: 1.5rem;
+        font-weight: 800;
+        line-height: 1.2;
+      }
+
+      .problem-bridge-v8 span {
+        color: #93c5fd;
+        display: block;
+        font-size: 0.75rem;
+        /* Smaller */
+        margin-top: 0.25rem;
+        font-weight: 600;
+      }
+
+      /* Cards in Diag */
+      .diag-card-v8 {
+        background: white;
+        border-radius: 0.75rem;
+        padding: 0.75rem 1rem;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        box-shadow:
+          0 4px 6px -1px rgba(0, 0, 0, 0.01),
+          0 2px 4px -1px rgba(0, 0, 0, 0.02);
+        transition: transform 0.2s ease;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .diag-card-v8:hover {
+        transform: translateY(-2px);
+        border-color: rgba(37, 99, 235, 0.2);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+      }
+
+      .diag-card-v8 h4 {
+        font-size: 0.95rem;
+        /* Smaller */
+        font-weight: 800;
+        color: #1e293b;
+        margin-bottom: 0.25rem;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+
+      .diag-card-v8 p {
+        font-size: 0.8rem;
+        /* Smaller */
+        color: #64748b;
+        line-height: 1.3;
+        font-weight: 500;
+      }
+
+      .diag-card-v8 .stat-v8 {
+        font-size: 0.85rem;
+        font-weight: 800;
+        color: #2563eb;
+        margin-top: 0.4rem;
+        display: block;
+      }
+
+      .sub-info-v8 {
+        font-size: 10px;
+        margin-top: 0.25rem;
+        font-style: italic;
+        color: #64748b;
+        font-weight: 500;
+      }
+
+      /* 2030 Horizon Banner */
+      .horizon-2030-v8 {
+        background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+        border: 1.5px dashed #3b82f6;
+        border-radius: 1rem;
+        padding: 0.75rem 1.5rem;
+        margin-top: 0.5rem;
+        position: relative;
+      }
+
+      .horizon-grid-v8 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+
+      .horizon-item-v8 {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      .horizon-item-v8 i {
+        color: #2563eb;
+        background: white;
+        padding: 0.6rem;
+        border-radius: 0.75rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      }
+
+      .horizon-item-v8 h5 {
+        font-size: 1rem;
+        font-weight: 800;
+        color: #1e3a8a;
+        margin-bottom: 0.25rem;
+      }
+
+      .horizon-item-v8 p {
+        font-size: 0.85rem;
+        color: #475569;
+        font-weight: 500;
+      }
+
+      /* Footer Quote */
+      .diag-footer-v8 {
+        border-top: 1px solid #e2e8f0;
+        padding-top: 1.25rem;
+        text-align: center;
+      }
+
+      .diag-footer-v8 p {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #1e40af;
+      }
+
+      .diag-footer-v8 span {
+        color: #2563eb;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      /* Tree Connectors V8 */
+      .tree-grid-connectors {
+        display: grid;
+        width: 100%;
+      }
+
+      .tree-grid-connectors div {
+        display: flex;
+        justify-content: center;
+      }
+
+      .tree-vert-line {
+        width: 1px;
+        height: 0.75rem;
+        background: #cbd5e1;
+      }
+
+      .tree-pivot {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 1rem;
+      }
+
+      .tree-main-v {
+        width: 1px;
+        background: #cbd5e1;
+        height: 100%;
+        position: relative;
+      }
+
+      .tree-main-v::after {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 5px;
+        height: 5px;
+        background: #94a3b8;
+        border-radius: 50%;
+        z-index: 10;
+      }
+
+      .tree-horizontal-bar {
+        position: absolute;
+        top: 0;
+        height: 1px;
+        background: #cbd5e1;
+      }
+
+      .top-bar {
+        left: 12.5%;
+        right: 12.5%;
+      }
+
+      .bottom-bar {
+        left: 16.66%;
+        right: 16.66%;
+      }
+
+      .top-connectors {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+      }
+
+      .bottom-connectors {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+      }
+
+      /* Glass Modules V7 */
+      .glass-module {
+        background: rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(10px);
+        border-radius: 2rem;
+        padding: 1.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+      }
+
+      .vertical-text {
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        display: inline-block;
+      }
+
+      .module-scale {
+        flex-grow: 1;
+      }
+
+      .module-impact {
+        background: rgba(30, 58, 138, 0.02);
+        /* Slight tint for differentiation */
+      }
+
+      @media (max-width: 1024px) {
         .infografia-crisis {
-            position: relative;
-            color: #0F172A;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
+          padding: 1.5rem;
+          height: auto;
+          min-height: 100vh;
         }
 
-        .hero-title-v2 {
-            text-align: left;
-            margin-bottom: 1.5rem;
+        .hero-title h1 {
+          font-size: 30px;
         }
 
-        .hero-title-v2 h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.02em;
-            line-height: 1.1;
-            color: #1E3A8A;
+        .content-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
         }
 
-        .hero-title-v2 h2 {
-            font-size: 1.7rem;
-            font-weight: 600;
-            color: #475569;
+        .imagen-lado {
+          max-width: 450px;
+          margin: 0 auto;
         }
 
-        .highlight-blue {
-            color: #2563EB;
-            font-weight: 800;
+        .usuarios-list {
+          grid-template-columns: 1fr;
         }
 
-        .content-grid-v2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1.2fr;
-            gap: 1.5rem;
-            flex-grow: 1;
-            align-items: stretch;
+        .cta-footer {
+          font-size: 16px;
+          padding: 15px;
         }
-
-        .main-stat-v2 {
-            background: white;
-            padding: 3rem 2rem;
-            border-radius: 2rem;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(37, 99, 235, 0.1);
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            border-top: 8px solid #2563EB;
-        }
-
-        .num-xl {
-            font-size: 4.2rem;
-            font-weight: 900;
-            color: #1E3A8A;
-            line-height: 1;
-            margin-bottom: 1rem;
-        }
-
-        .subtext-xl {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #64748B;
-            line-height: 1.2;
-        }
-
-        .context-column {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .stat-card-light {
-            background: white;
-            padding: 2rem;
-            border-radius: 1.5rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .stat-card-light h3 {
-            font-size: 2.8rem;
-            font-weight: 900;
-            color: #2563EB;
-            margin-bottom: 0.25rem;
-        }
-
-        .stat-card-light p {
-            font-size: 1.1rem;
-            color: #64748B;
-            font-weight: 600;
-        }
-
-        .ranking-box-light {
-            background: #EFF6FF;
-            padding: 2rem;
-            border-radius: 1.5rem;
-            border-left: 5px solid #2563EB;
-            flex-grow: 1;
-        }
-
-        .ranking-box-light p {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #1E40AF;
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .impact-column {
-            background: #1E3A8A;
-            color: white;
-            padding: 3rem;
-            border-radius: 2.5rem;
-            box-shadow: 0 25px 50px -12px rgba(30, 58, 138, 0.25);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .impact-column h3 {
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            color: #BFDBFE;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .impact-list {
-            list-style: none;
-            padding: 0;
-            display: grid;
-            gap: 1.5rem;
-        }
-
-        .impact-list li {
-            display: flex;
-            align-items: center;
-            gap: 1.2rem;
-            font-size: 1.15rem;
-            font-weight: 600;
-        }
-
-        .icon-box {
-            width: 44px;
-            height: 44px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #64B5F6;
-        }
-
-        .img-grid-evidence {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .img-grid-evidence img {
-            width: 100%;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 1rem;
-            border: 2px solid #F1F5F9;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .img-grid-evidence img:hover {
-            transform: scale(1.05);
-            border-color: #2563EB;
-        }
-
-        .cta-footer-v2 {
-            padding: 2rem;
-            text-align: center;
-            background: white;
-            border-radius: 1.5rem;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(30, 58, 138, 0.1);
-            margin-top: 1rem;
-        }
-
-        .cta-footer-v2 p {
-            font-size: 1.35rem;
-            font-weight: 700;
-            color: #1E3A8A;
-            font-style: italic;
-        }
-
-        /* Identical Metrics Cards Styles */
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.25rem;
-            margin-bottom: 1.25rem;
-        }
-
-        .identical-card {
-            background: white;
-            border-radius: 1.5rem;
-            padding: 1.5rem 2rem;
-            position: relative;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-height: 180px;
-        }
-
-        .identical-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 10px;
-            border-radius: 1.5rem 1.5rem 0 0;
-        }
-
-        .card-red::before {
-            background: #DC2626;
-        }
-
-        .card-orange::before {
-            background: #D97706;
-        }
-
-        .card-label-v3 {
-            font-size: 0.9rem;
-            font-weight: 800;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.75rem;
-            text-transform: uppercase;
-        }
-
-        .card-red .card-label-v3 {
-            color: #DC2626;
-        }
-
-        .card-orange .card-label-v3 {
-            color: #D97706;
-        }
-
-        .card-main-val {
-            font-size: 5.5rem;
-            font-weight: 900;
-            line-height: 1;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: baseline;
-            gap: 0.5rem;
-        }
-
-        .card-red .card-main-val {
-            color: #DC2626;
-        }
-
-        .card-orange .card-main-val {
-            color: #D97706;
-        }
-
-        .unit-text {
-            font-size: 2.5rem;
-            font-weight: 800;
-        }
-
-        .card-sub-info {
-            color: #64748B;
-            font-size: 1.2rem;
-            font-weight: 500;
-            line-height: 1.4;
-        }
-
-        .card-sub-info strong {
-            color: #0F172A;
-            font-weight: 800;
-        }
-
-        .wave-bg {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 150px;
-            height: 100px;
-            background: radial-gradient(circle at 100% 100%, rgba(220, 38, 38, 0.03) 0%, transparent 70%);
-            z-index: 0;
-        }
-
-        .card-orange .wave-bg {
-            background: radial-gradient(circle at 100% 100%, rgba(217, 119, 6, 0.03) 0%, transparent 70%);
-        }
-
-        /* Ranking Cards Styles - Identical to Image */
-        .ranking-container-v6 {
-            display: grid;
-            grid-template-columns: 1fr 1.4fr;
-            gap: 1.5rem;
-            margin-top: 1rem;
-            align-items: stretch;
-        }
-
-        .rank-stack-v6 {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-
-        .rank-card-v6 {
-            background: white;
-            border-radius: 1rem;
-            padding: 0.75rem 1.25rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            flex-grow: 1;
-        }
-
-        .rank-icon-circle-v6 {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .rank-text-v6 h4 {
-            font-size: 1.4rem;
-            font-weight: 800;
-            line-height: 1.1;
-        }
-
-        .rank-text-v6 p {
-            font-size: 1.05rem;
-            color: #64748B;
-            font-weight: 500;
-            line-height: 1.2;
-        }
-
-        .evidence-side-v6 {
-            border-radius: 1.25rem;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .evidence-side-v6 img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .evidence-side-v6 .overlay-v6 {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
-            padding: 1rem;
-            color: white;
-            font-size: 0.75rem;
-            font-weight: 700;
-        }
-
-        .ranking-row-v4 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .rank-card {
-            background: white;
-            border-radius: 1.25rem;
-            padding: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .rank-icon-circle {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .bg-orange-soft {
-            background: #FFF7ED;
-            color: #D97706;
-        }
-
-        .bg-red-soft {
-            background: #FEF2F2;
-            color: #DC2626;
-        }
-
-        .rank-text h4 {
-            font-size: 1.4rem;
-            font-weight: 800;
-            line-height: 1.2;
-        }
-
-        .text-orange-rank {
-            color: #D97706;
-        }
-
-        .text-red-rank {
-            color: #DC2626;
-        }
-
-        .rank-text p {
-            font-size: 1rem;
-            color: #64748B;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .evidence-banner-v4 {
-            margin-top: 2rem;
-            border-radius: 2rem;
-            overflow: hidden;
-            height: 180px;
-            position: relative;
-            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
-        }
-
-        .evidence-banner-v4 img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .evidence-banner-v4 .overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to right, rgba(15, 23, 42, 0.6), transparent);
-            padding: 2rem;
-            display: flex;
-            align-items: flex-end;
-        }
-
-        .evidence-banner-v4 span {
-            color: white;
-            font-weight: 700;
-            font-size: 1.1rem;
-            letter-spacing: 0.05em;
-        }
-
-        /* Impact Section V5 - Compact \u0026 Identical to Image */
-        .impact-v5 {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            height: 100%;
-        }
-
-        .consequence-box-v5 {
-            background: #F1F5F9;
-            border-left: 6px solid #1E3A8A;
-            padding: 1rem 1.25rem;
-            border-radius: 0.75rem;
-        }
-
-        .consequence-box-v5 .tag-v5 {
-            color: #64748B;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 0.4rem;
-            display: block;
-        }
-
-        .consequence-box-v5 p {
-            font-size: 1.15rem;
-            color: #1E3A8A;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        .consequence-box-v5 strong {
-            color: #3B82F6;
-            font-weight: 900;
-        }
-
-        .impact-card-v5 {
-            background: white;
-            padding: 0.75rem 1.25rem;
-            border-radius: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            transition: all 0.2s ease;
-            flex-grow: 1;
-        }
-
-        .impact-card-v5:hover {
-            transform: scale(1.01);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-        }
-
-        .icon-sq-v5 {
-            width: 52px;
-            height: 52px;
-            border-radius: 0.75rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .bg-b-50 {
-            background: #EEF2FF;
-            color: #4F46E5;
-        }
-
-        .bg-g-50 {
-            background: #F0FDF4;
-            color: #16A34A;
-        }
-
-        .bg-y-50 {
-            background: #FFFBEB;
-            color: #D97706;
-        }
-
-        .card-info-v5 h4 {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: #1E293B;
-        }
-
-        .card-info-v5 p {
-            font-size: 1.1rem;
-            color: #64748B;
-            font-weight: 500;
-        }
-
-        .arrow-v5 {
-            color: #E2E8F0;
-            margin-left: auto;
-        }
-
-        /* Global Slide Harmony V8 */
-        .global-slide-v8 {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            height: 100%;
-            width: 100%;
-        }
-
-        .section-header-v8 {
-            border-left: 6px solid #2563EB;
-            padding-left: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .section-header-v8 h2 {
-            font-size: 2.2rem;
-            font-weight: 900;
-            color: #0F172A;
-            letter-spacing: -0.01em;
-        }
-
-        .section-label-v8 {
-            font-size: 0.8rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: #2563EB;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-
-        .grid-v8-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        .grid-v8-4 {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.25rem;
-        }
-
-        /* Slide 2: Diagnosis System V8 */
-        .slide-diagnosis {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            /* Compact gap */
-            height: 100%;
-        }
-
-        .diag-header-v8 {
-            border-left: 8px solid #2563EB;
-            padding-left: 1.5rem;
-            margin-bottom: 0.25rem;
-            /* Reduced */
-        }
-
-        .diag-header-v8 h1 {
-            font-size: 1.8rem;
-            /* Compact */
-            font-weight: 900;
-            color: #0F172A;
-            letter-spacing: -0.01em;
-        }
-
-        .diag-grid-v8 {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 1.5rem;
-            flex-grow: 1;
-        }
-
-        .diag-section-v8 {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            /* More compact */
-        }
-
-        .diag-label-v8 {
-            font-size: 0.8rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #64748B;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        /* Central Problem Component */
-        .problem-bridge-v8 {
-            background: #1E3A8A;
-            color: white;
-            padding: 0.75rem 2rem;
-            /* Thinned */
-            border-radius: 1.25rem;
-            text-align: center;
-            position: relative;
-            box-shadow: 0 10px 25px rgba(30, 58, 138, 0.2);
-            margin: 0.25rem 0;
-            /* Minimal */
-        }
-
-        .problem-bridge-v8 h2 {
-            font-size: 1.5rem;
-            font-weight: 800;
-            line-height: 1.2;
-        }
-
-        .problem-bridge-v8 span {
-            color: #93C5FD;
-            display: block;
-            font-size: 0.75rem;
-            /* Smaller */
-            margin-top: 0.25rem;
-            font-weight: 600;
-        }
-
-        /* Cards in Diag */
-        .diag-card-v8 {
-            background: white;
-            border-radius: 0.75rem;
-            padding: 0.75rem 1rem;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.01), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
-            transition: transform 0.2s ease;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .diag-card-v8:hover {
-            transform: translateY(-2px);
-            border-color: rgba(37, 99, 235, 0.2);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
-        }
-
-        .diag-card-v8 h4 {
-            font-size: 0.95rem;
-            /* Smaller */
-            font-weight: 800;
-            color: #1E293B;
-            margin-bottom: 0.25rem;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-        }
-
-        .diag-card-v8 p {
-            font-size: 0.8rem;
-            /* Smaller */
-            color: #64748B;
-            line-height: 1.3;
-            font-weight: 500;
-        }
-
-        .diag-card-v8 .stat-v8 {
-            font-size: 0.85rem;
-            font-weight: 800;
-            color: #2563EB;
-            margin-top: 0.4rem;
-            display: block;
-        }
-
-        .sub-info-v8 {
-            font-size: 10px;
-            margin-top: 0.25rem;
-            font-style: italic;
-            color: #64748B;
-            font-weight: 500;
-        }
-
-        /* 2030 Horizon Banner */
-        .horizon-2030-v8 {
-            background: linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 100%);
-            border: 1.5px dashed #3B82F6;
-            border-radius: 1rem;
-            padding: 0.75rem 1.5rem;
-            margin-top: 0.5rem;
-            position: relative;
-        }
-
-        .horizon-grid-v8 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
-        .horizon-item-v8 {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-
-        .horizon-item-v8 i {
-            color: #2563EB;
-            background: white;
-            padding: 0.6rem;
-            border-radius: 0.75rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        }
-
-        .horizon-item-v8 h5 {
-            font-size: 1rem;
-            font-weight: 800;
-            color: #1E3A8A;
-            margin-bottom: 0.25rem;
-        }
-
-        .horizon-item-v8 p {
-            font-size: 0.85rem;
-            color: #475569;
-            font-weight: 500;
-        }
-
-        /* Footer Quote */
-        .diag-footer-v8 {
-            border-top: 1px solid #E2E8F0;
-            padding-top: 1.25rem;
-            text-align: center;
-        }
-
-        .diag-footer-v8 p {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #1E40AF;
-        }
-
-        .diag-footer-v8 span {
-            color: #2563EB;
-            font-weight: 900;
-            text-transform: uppercase;
-        }
-
-        /* Tree Connectors V8 */
-        .tree-grid-connectors {
-            display: grid;
-            width: 100%;
-        }
-
-        .tree-grid-connectors div {
-            display: flex;
-            justify-content: center;
-        }
-
-        .tree-vert-line {
-            width: 1px;
-            height: 0.75rem;
-            background: #CBD5E1;
-        }
-
-        .tree-pivot {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            height: 1rem;
-        }
-
-        .tree-main-v {
-            width: 1px;
-            background: #CBD5E1;
-            height: 100%;
-            position: relative;
-        }
-
-        .tree-main-v::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 5px;
-            height: 5px;
-            background: #94A3B8;
-            border-radius: 50%;
-            z-index: 10;
-        }
-
-        .tree-horizontal-bar {
-            position: absolute;
-            top: 0;
-            height: 1px;
-            background: #CBD5E1;
-        }
-
-        .top-bar {
-            left: 12.5%;
-            right: 12.5%;
-        }
-
-        .bottom-bar {
-            left: 16.66%;
-            right: 16.66%;
-        }
-
-        .top-connectors {
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-        }
-
-        .bottom-connectors {
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
-        /* Glass Modules V7 */
-        .glass-module {
-            background: rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(10px);
-            border-radius: 2rem;
-            padding: 1.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
-            display: flex;
-            flex-direction: column;
-            gap: 1.25rem;
-        }
-
-        .module-scale {
-            flex-grow: 1;
-        }
-
-        .module-impact {
-            background: rgba(30, 58, 138, 0.02);
-            /* Slight tint for differentiation */
-        }
-
-        @media (max-width: 1024px) {
-            .infografia-crisis {
-                padding: 1.5rem;
-                height: auto;
-                min-height: 100vh;
-            }
-
-            .hero-title h1 {
-                font-size: 30px;
-            }
-
-            .content-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .imagen-lado {
-                max-width: 450px;
-                margin: 0 auto;
-            }
-
-            .usuarios-list {
-                grid-template-columns: 1fr;
-            }
-
-            .cta-footer {
-                font-size: 16px;
-                padding: 15px;
-            }
-        }
+      }
     </style>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <div class="breadcrumb">ANA • PLANEAMIENTO ESTRATÉGICO 2025-2030</div>
 
     <div class="slide active" id="s1">
-        <section class="infografia-crisis reveal">
-            <header class="hero-title-v2 reveal">
-                <h1>PERÚ: <span class="text-blue-600">UNA CRISIS DE CALIDAD DEL AGUA</span></h1>
-                <h2>QUE AFECTA A <span class="highlight-blue">MILLONES DE USUARIOS</span></h2>
-            </header>
+      <section class="infografia-crisis reveal">
+        <header class="hero-title-v2 reveal">
+          <h1>
+            PERÚ:
+            <span class="text-blue-600">UNA CRISIS DE CALIDAD DEL AGUA</span>
+          </h1>
+          <h2>
+            QUE AFECTA A
+            <span class="highlight-blue">MILLONES DE USUARIOS</span>
+          </h2>
+        </header>
 
-            <div class="content-grid-v2">
-                <!-- Módulo 1: Escala y Ranking -->
-                <div class="col-span-2 glass-module module-scale">
-                    <div class="metrics-grid">
-                        <!-- Card 1: Identical to Image -->
-                        <div class="identical-card card-red reveal delay-1">
-                            <div class="card-label-v3">PERSONAS SIN ACCESO ADECUADO</div>
-                            <div class="card-main-val">
-                                11 <span class="unit-text">Millones</span>
-                            </div>
-                            <div class="card-sub-info">
-                                sin acceso adecuado a<br>
-                                <strong>agua potable</strong>
-                            </div>
-                            <div class="wave-bg"></div>
-                        </div>
-
-                        <!-- Card 2: Identical to Image -->
-                        <div class="identical-card card-orange reveal delay-2">
-                            <div class="card-label-v3">ÍNDICE DE ESTRÉS HÍDRICO</div>
-                            <div class="card-main-val">3.72</div>
-                            <div class="card-sub-info">
-                                indicador nacional de<br>
-                                <strong>estrés hídrico severo</strong>
-                            </div>
-                            <div class="wave-bg"></div>
-                        </div>
-                    </div>
-
-                    <div class="ranking-container-v6 reveal delay-3">
-                        <div class="rank-stack-v6">
-                            <!-- Card: Entre los 32 -->
-                            <div class="rank-card-v6">
-                                <div class="rank-icon-circle-v6 bg-orange-soft">
-                                    <i data-lucide="globe" class="w-6 h-6"></i>
-                                </div>
-                                <div class="rank-text-v6">
-                                    <h4 class="text-orange-rank">Entre los 32</h4>
-                                    <p>países más críticos<br>del mundo</p>
-                                </div>
-                            </div>
-
-                            <!-- Card: 3.er país -->
-                            <div class="rank-card-v6">
-                                <div class="rank-icon-circle-v6 bg-red-soft">
-                                    <i data-lucide="map-pin" class="w-6 h-6"></i>
-                                </div>
-                                <div class="rank-text-v6">
-                                    <h4 class="text-red-rank">3er país</h4>
-                                    <p>más crítico en<br>América Latina</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Evidence Image Side -->
-                        <div class="evidence-side-v6">
-                            <img src="estres_0.jpg" alt="Evidencia de Crisis">
-                            <div class="overlay-v6">
-                                ESTRÉS HÍDRICO NACIONAL
-                            </div>
-                        </div>
-                    </div>
+        <div class="content-grid-v2">
+          <!-- Módulo 1: Escala y Ranking -->
+          <div class="col-span-2 glass-module module-scale">
+            <div class="metrics-grid">
+              <!-- Card 1: Identical to Image -->
+              <div class="identical-card card-red reveal delay-1">
+                <div class="card-label-v3">PERSONAS SIN ACCESO ADECUADO</div>
+                <div class="card-main-val">
+                  11 <span class="unit-text">Millones</span>
                 </div>
-
-                <!-- Módulo 2: Impacto Crítico (V5) -->
-                <div class="impact-v5 glass-module module-impact reveal delay-4">
-                    <div class="consequence-box-v5">
-                        <p>Limitada seguridad hídrica que afecta a los <strong> USUARIOS DEL RECURSO HÍDRICO </strong>
-                        </p>
-                    </div>
-
-                    <div class="impact-card-v5">
-                        <div class="icon-sq-v5 bg-b-50"><i data-lucide="droplet"></i></div>
-                        <div class="card-info-v5">
-                            <h4>Consumo humano</h4>
-                            <p>Abastecimiento de agua potable y saneamiento</p>
-                        </div>
-                        <i data-lucide="chevron-right" class="arrow-v5"></i>
-                    </div>
-
-                    <div class="impact-card-v5">
-                        <div class="icon-sq-v5 bg-g-50"><i data-lucide="sprout"></i></div>
-                        <div class="card-info-v5">
-                            <h4>Agricultura y producción</h4>
-                            <p>Riego de cultivos y actividades agroindustriales</p>
-                        </div>
-                        <i data-lucide="chevron-right" class="arrow-v5"></i>
-                    </div>
-
-                    <div class="impact-card-v5">
-                        <div class="icon-sq-v5 bg-y-50"><i data-lucide="zap"></i></div>
-                        <div class="card-info-v5">
-                            <h4>Energía y ecosistemas</h4>
-                            <p>Generación hidroeléctrica y biodiversidad</p>
-                        </div>
-                        <i data-lucide="chevron-right" class="arrow-v5"></i>
-                    </div>
+                <div class="card-sub-info">
+                  sin acceso adecuado a<br />
+                  <strong>agua potable</strong>
                 </div>
+                <div class="wave-bg"></div>
+              </div>
+
+              <!-- Card 2: Identical to Image -->
+              <div class="identical-card card-orange reveal delay-2">
+                <div class="card-label-v3">ÍNDICE DE ESTRÉS HÍDRICO</div>
+                <div class="card-main-val">3.72</div>
+                <div class="card-sub-info">
+                  indicador nacional de<br />
+                  <strong>estrés hídrico severo</strong>
+                </div>
+                <div class="wave-bg"></div>
+              </div>
             </div>
 
-            <footer class="cta-footer-v2 reveal delay-4">
-                <p>
-                    "Si no protegemos la calidad del agua hoy, no habrá seguridad hídrica mañana."
-                </p>
-            </footer>
-        </section>
+            <div class="ranking-container-v6 reveal delay-3">
+              <div class="rank-stack-v6">
+                <!-- Card: Entre los 32 -->
+                <div class="rank-card-v6">
+                  <div class="rank-icon-circle-v6 bg-orange-soft">
+                    <i data-lucide="globe" class="w-6 h-6"></i>
+                  </div>
+                  <div class="rank-text-v6">
+                    <h4 class="text-orange-rank">Entre los 32</h4>
+                    <p>países más críticos<br />del mundo</p>
+                  </div>
+                </div>
+
+                <!-- Card: 3.er país -->
+                <div class="rank-card-v6">
+                  <div class="rank-icon-circle-v6 bg-red-soft">
+                    <i data-lucide="map-pin" class="w-6 h-6"></i>
+                  </div>
+                  <div class="rank-text-v6">
+                    <h4 class="text-red-rank">3er país</h4>
+                    <p>más crítico en<br />América Latina</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Evidence Image Side -->
+              <div class="evidence-side-v6">
+                <img src="estres_0.jpg" alt="Evidencia de Crisis" />
+                <div class="overlay-v6">ESTRÉS HÍDRICO NACIONAL</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Módulo 2: Impacto Crítico (V5) -->
+          <div class="impact-v5 glass-module module-impact reveal delay-4">
+            <div class="consequence-box-v5">
+              <p>
+                Limitada seguridad hídrica que afecta a los
+                <strong> USUARIOS DEL RECURSO HÍDRICO </strong>
+              </p>
+            </div>
+
+            <div class="impact-card-v5">
+              <div class="icon-sq-v5 bg-b-50">
+                <i data-lucide="droplet"></i>
+              </div>
+              <div class="card-info-v5">
+                <h4>Consumo humano</h4>
+                <p>Abastecimiento de agua potable y saneamiento</p>
+              </div>
+              <i data-lucide="chevron-right" class="arrow-v5"></i>
+            </div>
+
+            <div class="impact-card-v5">
+              <div class="icon-sq-v5 bg-g-50"><i data-lucide="sprout"></i></div>
+              <div class="card-info-v5">
+                <h4>Agricultura y producción</h4>
+                <p>Riego de cultivos y actividades agroindustriales</p>
+              </div>
+              <i data-lucide="chevron-right" class="arrow-v5"></i>
+            </div>
+
+            <div class="impact-card-v5">
+              <div class="icon-sq-v5 bg-y-50"><i data-lucide="zap"></i></div>
+              <div class="card-info-v5">
+                <h4>Energía y ecosistemas</h4>
+                <p>Generación hidroeléctrica y biodiversidad</p>
+              </div>
+              <i data-lucide="chevron-right" class="arrow-v5"></i>
+            </div>
+          </div>
+        </div>
+
+        <footer class="cta-footer-v2 reveal delay-4">
+          <p>
+            "Si no protegemos la calidad del agua hoy, no habrá seguridad
+            hídrica mañana."
+          </p>
+        </footer>
+      </section>
     </div>
-
-
 
     <div class="slide" id="s2">
-        <section class="slide-diagnosis reveal">
-            <header class="diag-header-v8">
-                <span class="diag-label-v8">ANÁLISIS ESTRATÉGICO</span>
-                <h1>PERÚ 2026 | Situación actual y horizonte al 2030</h1>
-            </header>
+      <section class="slide-diagnosis reveal">
+        <header class="diag-header-v8">
+          <span class="diag-label-v8">ANÁLISIS ESTRATÉGICO</span>
+          <h1>PERÚ 2026 | Situación actual y horizonte al 2030</h1>
+        </header>
 
-            <!-- Top Section: Effects -->
-            <div class="diag-section-v8">
-                <span class="diag-label-v8"><i data-lucide="alert-triangle" class="w-4 h-4"></i> EFECTOS</span>
-                <div class="grid grid-cols-4 gap-4 items-stretch">
-                    <div class="diag-card-v8">
-                        <h4><i data-lucide="users"></i> Conflictividad</h4>
-                        <p>Mayor conflictividad social por uso del agua</p>
-                        <div class="mt-auto">
-                            <span class="stat-v8">854 conflictos sociales (2018–2020)</span>
-                        </div>
-                    </div>
-                    <div class="diag-card-v8">
-                        <h4><i data-lucide="heart"></i> Salud</h4>
-                        <p>Afectación a la salud pública</p>
-                    </div>
-                    <div class="diag-card-v8">
-                        <h4><i data-lucide="tractor"></i> Agricultura</h4>
-                        <p>Reducción de productividad agrícola</p>
-                    </div>
-                    <div class="diag-card-v8">
-                        <h4><i data-lucide="split"></i> Brechas</h4>
-                        <p>Incremento de brechas territoriales urbano-rurales</p>
-                    </div>
-                </div>
-                <!-- Line Connectors Down -->
-                <div class="tree-branch-container mt-2">
-                    <div class="tree-grid-connectors top-connectors">
-                        <div><span class="tree-vert-line"></span></div>
-                        <div><span class="tree-vert-line"></span></div>
-                        <div><span class="tree-vert-line"></span></div>
-                        <div><span class="tree-vert-line"></span></div>
-                    </div>
-                    <div class="tree-pivot">
-                        <div class="tree-horizontal-bar top-bar"></div>
-                        <div class="tree-main-v"></div>
-                    </div>
-                </div>
+        <!-- Top Section: Effects -->
+        <div class="diag-section-v8">
+          <span class="diag-label-v8"
+            ><i data-lucide="alert-triangle" class="w-4 h-4"></i> EFECTOS</span
+          >
+          <div class="grid grid-cols-4 gap-4 items-stretch">
+            <div class="diag-card-v8 !border-l-4 !border-l-green-500">
+              <h4 class="leading-tight"><i data-lucide="sprout" class="shrink-0"></i> Disminución de la producción agrícola y acuícola</h4>
             </div>
-
-            <!-- Central Bridge: The Problem -->
-            <div class="problem-bridge-v8">
-                <h2>LIMITADA SEGURIDAD HÍDRICA</h2>
-                <p>QUE AFECTA A LOS USUARIOS DEL RECURSO HÍDRICO</p>
+            <div class="diag-card-v8 !border-l-4 !border-l-blue-500">
+              <h4 class="leading-tight"><i data-lucide="droplets" class="shrink-0"></i> Disminución de la atención y cobertura de agua potable</h4>
             </div>
-
-            <!-- Bottom Section: Causes -->
-            <div class="diag-section-v8">
-                <!-- Line Connectors Up -->
-                <div class="tree-branch-container mb-2">
-                    <div class="tree-pivot">
-                        <div class="tree-main-v rotate-180" style="top: -8px;"></div>
-                        <div class="tree-horizontal-bar bottom-bar" style="bottom: 0; top: auto;"></div>
-                    </div>
-                    <div class="tree-grid-connectors grid-cols-3 gap-6">
-                        <div><span class="tree-vert-line"></span></div>
-                        <div><span class="tree-vert-line"></span></div>
-                        <div><span class="tree-vert-line"></span></div>
-                    </div>
-                </div>
-
-                <span class="diag-label-v8"><i data-lucide="cog" class="w-4 h-4"></i> CAUSAS ESTRUCTURALES</span>
-                <div class="grid grid-cols-3 gap-6 items-stretch">
-                    <div class="diag-card-v8">
-                        <h4><i data-lucide="microscope"></i> Calidad del Agua</h4>
-                        <p>Afectación de la calidad del agua</p>
-                        <div class="mt-auto">
-                            <span class="stat-v8">43.7% de aguas superficiales en condición regular, mala o
-                                pésima</span>
-                            <p class="sub-info-v8">Contaminación minera, urbana y agrícola</p>
-                        </div>
-                    </div>
-                    <div class="diag-card-v8">
-                        <h4><i data-lucide="bar-chart-3"></i> Disponibilidad</h4>
-                        <p>Deficiente manejo de disponibilidad</p>
-                        <div class="mt-auto">
-                            <p class="text-[11px] font-bold text-slate-500 mb-1">4.4M en déficit | 9.1M en umbral</p>
-                            <span class="stat-v8">Perú: 180 m³ per cápita almacenamiento</span>
-                        </div>
-                    </div>
-                    <div class="diag-card-v8">
-                        <h4><i data-lucide="cloud-lightning"></i> Vulnerabilidad</h4>
-                        <p>Alta vulnerabilidad climática</p>
-                        <div class="mt-auto">
-                            <p class="sub-info-v8 !not-italic !font-bold text-slate-600">Pérdida de bosques (2013–2021)
-                            </p>
-                            <p class="sub-info-v8">Alteración del régimen hidrológico y eventos extremos</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="diag-card-v8 !border-l-4 !border-l-yellow-500">
+              <h4 class="leading-tight"><i data-lucide="zap" class="shrink-0"></i> Disminución de la producción de energía eléctrica</h4>
             </div>
-
-            <!-- Horizon 2030: The Vision -->
-            <div class="horizon-2030-v8 reveal delay-1">
-                <span class="diag-label-v8" style="color: #1E40AF;"><i data-lucide="target" class="w-4 h-4"></i>
-                    ESCENARIO DESEADO AL 2030</span>
-                <div class="horizon-grid-v8 mt-2">
-                    <div class="horizon-item-v8">
-                        <i data-lucide="trending-down"></i>
-                        <div>
-                            <h5>Reducción del estrés hídrico</h5>
-                            <p>Meta: tendencia descendente sostenida</p>
-                        </div>
-                    </div>
-                    <div class="horizon-item-v8">
-                        <i data-lucide="database"></i>
-                        <div>
-                            <h5>Mayor almacenamiento y eficiencia</h5>
-                            <p>Recuperación de fuentes naturales prioritarias</p>
-                        </div>
-                    </div>
-                    <div class="horizon-item-v8">
-                        <i data-lucide="shield-check"></i>
-                        <div>
-                            <h5>Gobernanza integrada multinivel</h5>
-                            <p>Cuencas críticas en proceso de restauración</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="diag-card-v8 !border-l-4 !border-l-orange-500">
+              <h4 class="leading-tight"><i data-lucide="palmtree" class="shrink-0"></i> Afectación de las actividades turísticas y recreativas</h4>
             </div>
+          </div>
+          <!-- Line Connectors Down -->
+          <div class="tree-branch-container mt-2">
+            <div class="tree-grid-connectors top-connectors">
+              <div><span class="tree-vert-line"></span></div>
+              <div><span class="tree-vert-line"></span></div>
+              <div><span class="tree-vert-line"></span></div>
+              <div><span class="tree-vert-line"></span></div>
+            </div>
+            <div class="tree-pivot">
+              <div class="tree-horizontal-bar top-bar"></div>
+              <div class="tree-main-v"></div>
+            </div>
+          </div>
+        </div>
 
-            <footer class="diag-footer-v8 reveal delay-2">
-                <p>
-                    "La decisión estratégica hoy define si el Perú enfrenta un colapso hídrico o lidera un Renacimiento
-                    Azul."
-                </p>
-            </footer>
-        </section>
+        <!-- Central Bridge: The Problem -->
+        <div class="problem-bridge-v8">
+          <h2>LIMITADA SEGURIDAD HÍDRICA</h2>
+          <p>IMPACTO DIRECTO EN LOS USUARIOS DEL RECURSO</p>
+        </div>
+
+        <!-- Bottom Section: Causes -->
+        <div class="diag-section-v8">
+          <!-- Line Connectors Up -->
+          <div class="tree-branch-container mb-2">
+            <div class="tree-pivot">
+              <div class="tree-main-v rotate-180" style="top: -8px"></div>
+              <div
+                class="tree-horizontal-bar bottom-bar"
+                style="bottom: 0; top: auto"
+              ></div>
+            </div>
+            <div class="tree-grid-connectors bottom-connectors">
+              <div><span class="tree-vert-line"></span></div>
+              <div><span class="tree-vert-line"></span></div>
+              <div><span class="tree-vert-line"></span></div>
+              <div><span class="tree-vert-line"></span></div>
+            </div>
+          </div>
+
+          <span class="diag-label-v8"
+            ><i data-lucide="cog" class="w-4 h-4"></i> CAUSAS
+            ESTRUCTURALES</span
+          >
+          <div class="grid grid-cols-4 gap-4 items-stretch">
+            <div class="diag-card-v8 !border-t-2 !border-t-blue-400">
+              <h4 class="leading-tight"><i data-lucide="microscope" class="shrink-0"></i> Afectación de la calidad del agua en fuentes naturales y bienes asociados</h4>
+            </div>
+            <div class="diag-card-v8 !border-t-2 !border-t-cyan-400">
+              <h4 class="leading-tight"><i data-lucide="bar-chart-3" class="shrink-0"></i> Deficiente manejo de la disponibilidad del agua para atender la demanda multisectorial</h4>
+            </div>
+            <div class="diag-card-v8 !border-t-2 !border-t-indigo-400">
+              <h4 class="leading-tight"><i data-lucide="cloud-lightning" class="shrink-0"></i> Alta vulnerabilidad ante cambios del régimen hidrológico en las unidades hidrográficas</h4>
+            </div>
+            <div class="diag-card-v8 !border-t-2 !border-t-slate-400">
+              <h4 class="leading-tight"><i data-lucide="gavel" class="shrink-0"></i> Débil gobernanza hídrica</h4>
+            </div>
+          </div>
+        </div>
+
+        <!-- Horizon 2030: The Vision -->
+        <div class="horizon-2030-v8 reveal delay-1">
+          <span class="diag-label-v8" style="color: #1e40af"
+            ><i data-lucide="target" class="w-4 h-4"></i> ESCENARIO DESEADO AL
+            2030</span
+          >
+          <div class="horizon-grid-v8 mt-2">
+            <div class="horizon-item-v8">
+              <i data-lucide="trending-down"></i>
+              <div>
+                <h5>Menor estrés hídrico</h5>
+                <p>Tendencia descendente sostenida</p>
+              </div>
+            </div>
+            <div class="horizon-item-v8">
+              <i data-lucide="database"></i>
+              <div>
+                <h5>Eficiencia y Almacenamiento</h5>
+                <p>Recuperación de fuentes naturales</p>
+              </div>
+            </div>
+            <div class="horizon-item-v8">
+              <i data-lucide="shield-check"></i>
+              <div>
+                <h5>Gobernanza Multinivel</h5>
+                <p>Restauración de cuencas críticas</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <footer class="diag-footer-v8 reveal delay-2">
+          <p>
+            "La decisión estratégica hoy define si el Perú enfrenta un colapso
+            hídrico o lidera un Renacimiento Azul."
+          </p>
+        </footer>
+      </section>
     </div>
 
-
-
-
-
     <div class="slide" id="s3">
-        <section class="global-slide-v8 reveal" style="gap: 1.25rem;">
-            <header class="section-header-v8" style="margin-bottom: 0.25rem;">
-                <span class="section-label-v8">PROPUESTA ESTRATÉGICA AL 2030</span>
-                <h2 class="text-4xl font-black">Resultados directos del OEI 1 y sus Acciones Estratégicas</h2>
-            </header>
+      <section class="global-slide-v8 reveal" style="gap: 1.25rem">
+        <header class="section-header-v8" style="margin-bottom: 0.25rem">
+          <span class="section-label-v8">PROPUESTA ESTRATÉGICA AL 2030</span>
+          <h2 class="text-4xl font-black">
+            Resultados directos del OEI 1 y sus Acciones Estratégicas
+          </h2>
+        </header>
 
-            <!-- Expanded Hero with Integrated Illustration -->
+        <!-- Expanded Hero with Integrated Illustration -->
+        <div
+          class="glass-module bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 border-none p-5 reveal delay-1 shadow-2xl relative rounded-[2rem]"
+        >
+          <div
+            class="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full -mr-32 -mt-32 blur-[80px]"
+          ></div>
+          <div class="flex items-center justify-between relative z-10 gap-12">
+            <div class="flex-grow">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="bg-blue-500 p-3 rounded-2xl shadow-xl">
+                  <i data-lucide="target" class="w-8 h-8 text-white"></i>
+                </div>
+                <span
+                  class="text-cyan-400 font-black tracking-[0.3em] text-[11px] uppercase"
+                  >Eje Estratégico 01</span
+                >
+              </div>
+              <h3 class="text-3xl font-black text-white leading-tight mb-4">
+                OEI 1: Elevar la cantidad y calidad del agua y sus bienes
+                asociados en las cuencas hidrográficas
+              </h3>
+              <div class="flex gap-6">
+                <div
+                  class="bg-white/10 px-8 py-4 rounded-2xl border border-white/20 backdrop-blur-xl flex items-center gap-6"
+                >
+                  <i
+                    data-lucide="bar-chart-2"
+                    class="w-7 h-7 text-cyan-400"
+                  ></i>
+                  <div>
+                    <p
+                      class="text-blue-200 text-[11px] font-black uppercase tracking-widest mb-0.5"
+                    >
+                      Indicador Clave
+                    </p>
+                    <p class="text-white font-extrabold text-xl leading-none">
+                      % Cuencas evaluadas en cantidad y calidad:
+                      <span class="text-cyan-400">2.52%</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <span
+          class="diag-label-v8 text-blue-900 font-black text-sm uppercase tracking-widest flex items-center gap-2"
+        >
+          <i data-lucide="layers" class="w-6 h-6"></i> Acciones Estratégicas
+          Institucionales (AEI)
+        </span>
+
+        <!-- Full Width Grid -->
+        <div class="grid grid-cols-4 gap-4 flex-grow">
+          <!-- AEI 1.1 -->
+          <div
+            class="glass-module reveal delay-2 p-5 border-l-4 border-blue-600 bg-white/95 rounded-[1.5rem] shadow-lg flex flex-col hover:translate-y-[-4px] transition-transform"
+          >
+            <div class="flex justify-between items-center mb-2">
+              <span
+                class="text-[11px] bg-blue-600 text-white px-4 py-1 rounded-full font-black"
+                >AEI 1.1</span
+              >
+              <i data-lucide="microscope" class="w-4 h-4 text-blue-600"></i>
+            </div>
+            <h4
+              class="font-black text-slate-800 text-[14px] leading-tight mb-2"
+            >
+              Estudio de Evaluación de RRHH elaborados para actores de cuenca
+            </h4>
+            <p class="text-[12px] text-slate-600 font-bold mb-4 italic">
+              % Estudios de Evaluación de RRHH elaborados
+            </p>
             <div
-                class="glass-module bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 border-none p-5 reveal delay-1 shadow-2xl relative rounded-[2rem]">
-                <div class="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full -mr-32 -mt-32 blur-[80px]">
-                </div>
-                <div class="flex items-center justify-between relative z-10 gap-12">
-                    <div class="flex-grow">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="bg-blue-500 p-3 rounded-2xl shadow-xl">
-                                <i data-lucide="target" class="w-8 h-8 text-white"></i>
-                            </div>
-                            <span class="text-cyan-400 font-black tracking-[0.3em] text-[11px] uppercase">Eje
-                                Estratégico 01</span>
-                        </div>
-                        <h3 class="text-3xl font-black text-white leading-tight mb-4">OEI 1: Elevar la cantidad y
-                            calidad del agua y sus bienes asociados en las cuencas hidrográficas</h3>
-                        <div class="flex gap-6">
-                            <div
-                                class="bg-white/10 px-8 py-4 rounded-2xl border border-white/20 backdrop-blur-xl flex items-center gap-6">
-                                <i data-lucide="bar-chart-2" class="w-7 h-7 text-cyan-400"></i>
-                                <div>
-                                    <p class="text-blue-200 text-[11px] font-black uppercase tracking-widest mb-0.5">
-                                        Indicador Clave</p>
-                                    <p class="text-white font-extrabold text-xl leading-none">% Cuencas evaluadas en
-                                        cantidad y calidad: <span class="text-cyan-400">2.52%</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              class="mt-auto pt-3 border-t border-slate-100 grid grid-cols-2 gap-2"
+            >
+              <div>
+                <p
+                  class="text-slate-400 text-[10px] font-black uppercase tracking-tighter"
+                >
+                  Base 2023
+                </p>
+                <span class="text-xl font-black text-slate-600">33.33%</span>
+              </div>
+              <div class="text-right">
+                <p
+                  class="text-blue-600 text-[10px] font-black uppercase tracking-tighter"
+                >
+                  Meta 2030
+                </p>
+                <span class="text-3xl font-black text-blue-800">3.70%</span>
+              </div>
             </div>
+          </div>
 
-            <span
-                class="diag-label-v8 text-blue-900 font-black text-sm uppercase tracking-widest flex items-center gap-2">
-                <i data-lucide="layers" class="w-6 h-6"></i> Acciones Estratégicas Institucionales (AEI)
-            </span>
-
-            <!-- Full Width Grid -->
-            <div class="grid grid-cols-4 gap-4 flex-grow">
-                <!-- AEI 1.1 -->
-                <div
-                    class="glass-module reveal delay-2 p-5 border-l-4 border-blue-600 bg-white/95 rounded-[1.5rem] shadow-lg flex flex-col hover:translate-y-[-4px] transition-transform">
-                    <div class="flex justify-between items-center mb-2">
-                        <span class="text-[11px] bg-blue-600 text-white px-4 py-1 rounded-full font-black">AEI
-                            1.1</span>
-                        <i data-lucide="microscope" class="w-4 h-4 text-blue-600"></i>
-                    </div>
-                    <h4 class="font-black text-slate-800 text-[14px] leading-tight mb-2">Estudio de Evaluación de RRHH
-                        elaborados para actores de cuenca</h4>
-                    <p class="text-[12px] text-slate-600 font-bold mb-4 italic">% Estudios de Evaluación de RRHH
-                        elaborados</p>
-                    <div class="mt-auto pt-3 border-t border-slate-100 grid grid-cols-2 gap-2">
-                        <div>
-                            <p class="text-slate-400 text-[10px] font-black uppercase tracking-tighter">Base 2023</p>
-                            <span class="text-xl font-black text-slate-600">33.33%</span>
-                        </div>
-                        <div class="text-right">
-                            <p class="text-blue-600 text-[10px] font-black uppercase tracking-tighter">Meta 2030</p>
-                            <span class="text-3xl font-black text-blue-800">3.70%</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- AEI 1.2 -->
-                <div
-                    class="glass-module reveal delay-2 p-5 border-l-4 border-cyan-500 bg-white/95 rounded-[1.5rem] shadow-lg flex flex-col hover:translate-y-[-4px] transition-transform">
-                    <div class="flex justify-between items-center mb-2">
-                        <span class="text-[11px] bg-cyan-500 text-white px-4 py-1 rounded-full font-black">AEI
-                            1.2</span>
-                        <i data-lucide="activity" class="w-4 h-4 text-cyan-600"></i>
-                    </div>
-                    <h4 class="font-black text-slate-800 text-[14px] leading-tight mb-2">Estudios de Diagnóstico de
-                        Calidad de RRHH elaborados para actores de cuenca</h4>
-                    <p class="text-[12px] text-slate-600 font-bold mb-4 italic">% Estudios de Diagnóstico de Calidad de
-                        RRHH elaborados</p>
-                    <div class="mt-auto pt-3 border-t border-slate-100 grid grid-cols-2 gap-2">
-                        <div>
-                            <p class="text-slate-400 text-[10px] font-black uppercase tracking-tighter">Base 2023</p>
-                            <span class="text-xl font-black text-slate-600">11.67%</span>
-                        </div>
-                        <div class="text-right">
-                            <p class="text-cyan-600 text-[10px] font-black uppercase tracking-tighter">Meta 2030</p>
-                            <span class="text-3xl font-black text-blue-800">6.67%</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- AEI 1.3 -->
-                <div
-                    class="glass-module reveal delay-3 p-5 border-l-4 border-blue-600 bg-white/95 rounded-[1.5rem] shadow-lg flex flex-col hover:translate-y-[-4px] transition-transform">
-                    <div class="flex justify-between items-center mb-2">
-                        <span class="text-[11px] bg-blue-600 text-white px-4 py-1 rounded-full font-black">AEI
-                            1.3</span>
-                        <i data-lucide="file-check" class="w-4 h-4 text-blue-600"></i>
-                    </div>
-                    <h4 class="font-black text-slate-800 text-[14px] leading-tight mb-2">Vertimientos formalizados
-                        otorgados para usuarios</h4>
-                    <p class="text-[12px] text-slate-600 font-bold mb-4 italic">N° Formalizaciones de Vertimientos
-                        otorgados</p>
-                    <div class="mt-auto pt-3 border-t border-slate-100 grid grid-cols-2 gap-2">
-                        <div>
-                            <p class="text-slate-400 text-[10px] font-black uppercase tracking-tighter">Base 2023</p>
-                            <span class="text-xl font-black text-slate-600">51</span>
-                        </div>
-                        <div class="text-right">
-                            <p class="text-blue-600 text-[10px] font-black uppercase tracking-tighter">Meta 2030</p>
-                            <span class="text-3xl font-black text-blue-800">10</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- AEI 1.4 -->
-                <div
-                    class="glass-module reveal delay-3 p-5 border-l-4 border-cyan-500 bg-white/95 rounded-[1.5rem] shadow-lg flex flex-col hover:translate-y-[-4px] transition-transform">
-                    <div class="flex justify-between items-center mb-2">
-                        <span class="text-[11px] bg-cyan-500 text-white px-4 py-1 rounded-full font-black">AEI
-                            1.4</span>
-                        <i data-lucide="shield-check" class="w-4 h-4 text-cyan-600"></i>
-                    </div>
-                    <h4 class="font-black text-slate-800 text-[14px] leading-tight mb-2">Fiscalizaciones de vertimientos
-                        de agua residual para actores de cuenca</h4>
-                    <p class="text-[12px] text-slate-600 font-bold mb-4 italic">N° Fiscalizaciones de vertimientos de
-                        agua residual</p>
-                    <div class="mt-auto pt-3 border-t border-slate-100 grid grid-cols-2 gap-2">
-                        <div>
-                            <p class="text-slate-400 text-[10px] font-black uppercase tracking-tighter">Base 2023</p>
-                            <span class="text-xl font-black text-slate-600">404</span>
-                        </div>
-                        <div class="text-right">
-                            <p class="text-cyan-600 text-[10px] font-black uppercase tracking-tighter">Meta 2030</p>
-                            <span class="text-3xl font-black text-blue-800">400</span>
-                        </div>
-                    </div>
-                </div>
+          <!-- AEI 1.2 -->
+          <div
+            class="glass-module reveal delay-2 p-5 border-l-4 border-cyan-500 bg-white/95 rounded-[1.5rem] shadow-lg flex flex-col hover:translate-y-[-4px] transition-transform"
+          >
+            <div class="flex justify-between items-center mb-2">
+              <span
+                class="text-[11px] bg-cyan-500 text-white px-4 py-1 rounded-full font-black"
+                >AEI 1.2</span
+              >
+              <i data-lucide="activity" class="w-4 h-4 text-cyan-600"></i>
             </div>
+            <h4
+              class="font-black text-slate-800 text-[14px] leading-tight mb-2"
+            >
+              Estudios de Diagnóstico de Calidad de RRHH elaborados para actores
+              de cuenca
+            </h4>
+            <p class="text-[12px] text-slate-600 font-bold mb-4 italic">
+              % Estudios de Diagnóstico de Calidad de RRHH elaborados
+            </p>
+            <div
+              class="mt-auto pt-3 border-t border-slate-100 grid grid-cols-2 gap-2"
+            >
+              <div>
+                <p
+                  class="text-slate-400 text-[10px] font-black uppercase tracking-tighter"
+                >
+                  Base 2023
+                </p>
+                <span class="text-xl font-black text-slate-600">11.67%</span>
+              </div>
+              <div class="text-right">
+                <p
+                  class="text-cyan-600 text-[10px] font-black uppercase tracking-tighter"
+                >
+                  Meta 2030
+                </p>
+                <span class="text-3xl font-black text-blue-800">6.67%</span>
+              </div>
+            </div>
+          </div>
 
+          <!-- AEI 1.3 -->
+          <div
+            class="glass-module reveal delay-3 p-5 border-l-4 border-blue-600 bg-white/95 rounded-[1.5rem] shadow-lg flex flex-col hover:translate-y-[-4px] transition-transform"
+          >
+            <div class="flex justify-between items-center mb-2">
+              <span
+                class="text-[11px] bg-blue-600 text-white px-4 py-1 rounded-full font-black"
+                >AEI 1.3</span
+              >
+              <i data-lucide="file-check" class="w-4 h-4 text-blue-600"></i>
+            </div>
+            <h4
+              class="font-black text-slate-800 text-[14px] leading-tight mb-2"
+            >
+              Vertimientos formalizados otorgados para usuarios
+            </h4>
+            <p class="text-[12px] text-slate-600 font-bold mb-4 italic">
+              N° Formalizaciones de Vertimientos otorgados
+            </p>
+            <div
+              class="mt-auto pt-3 border-t border-slate-100 grid grid-cols-2 gap-2"
+            >
+              <div>
+                <p
+                  class="text-slate-400 text-[10px] font-black uppercase tracking-tighter"
+                >
+                  Base 2023
+                </p>
+                <span class="text-xl font-black text-slate-600">51</span>
+              </div>
+              <div class="text-right">
+                <p
+                  class="text-blue-600 text-[10px] font-black uppercase tracking-tighter"
+                >
+                  Meta 2030
+                </p>
+                <span class="text-3xl font-black text-blue-800">10</span>
+              </div>
+            </div>
+          </div>
 
-        </section>
+          <!-- AEI 1.4 -->
+          <div
+            class="glass-module reveal delay-3 p-5 border-l-4 border-cyan-500 bg-white/95 rounded-[1.5rem] shadow-lg flex flex-col hover:translate-y-[-4px] transition-transform"
+          >
+            <div class="flex justify-between items-center mb-2">
+              <span
+                class="text-[11px] bg-cyan-500 text-white px-4 py-1 rounded-full font-black"
+                >AEI 1.4</span
+              >
+              <i data-lucide="shield-check" class="w-4 h-4 text-cyan-600"></i>
+            </div>
+            <h4
+              class="font-black text-slate-800 text-[14px] leading-tight mb-2"
+            >
+              Fiscalizaciones de vertimientos de agua residual para actores de
+              cuenca
+            </h4>
+            <p class="text-[12px] text-slate-600 font-bold mb-4 italic">
+              N° Fiscalizaciones de vertimientos de agua residual
+            </p>
+            <div
+              class="mt-auto pt-3 border-t border-slate-100 grid grid-cols-2 gap-2"
+            >
+              <div>
+                <p
+                  class="text-slate-400 text-[10px] font-black uppercase tracking-tighter"
+                >
+                  Base 2023
+                </p>
+                <span class="text-xl font-black text-slate-600">404</span>
+              </div>
+              <div class="text-right">
+                <p
+                  class="text-cyan-600 text-[10px] font-black uppercase tracking-tighter"
+                >
+                  Meta 2030
+                </p>
+                <span class="text-3xl font-black text-blue-800">400</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
 
     <div class="slide" id="s4">
-        <section class="global-slide-v8 reveal">
-            <header class="section-header-v8">
-                <span class="section-label-v8">VALOR CIUDADANO</span>
-                <h2>Beneficios para la ciudadanía al 2030</h2>
-            </header>
+      <section class="global-slide-v8 reveal" style="gap: 0.5rem">
+        <header class="section-header-v8">
+          <span class="section-label-v8">VALOR CIUDADANO</span>
+          <h2>Beneficios para la ciudadanía al 2030</h2>
+        </header>
 
-            <div class="mb-4">
-                <span class="text-xs font-black text-blue-600 uppercase tracking-widest">Resultados directos del OEI 1 y
-                    sus Acciones Estratégicas</span>
+        <div class="mb-4">
+          <span
+            class="text-xs font-black text-blue-600 uppercase tracking-widest"
+            >Resultados directos del OEI 1 y sus Acciones Estratégicas</span
+          >
+        </div>
+
+        <!-- Benefits Grid -->
+        <div class="grid grid-cols-2 gap-4 flex-grow">
+          <!-- Benefit 1: Security -->
+          <div
+            class="glass-module p-4 border-l-4 border-blue-600 reveal delay-1 hover:translate-x-2 transition-all duration-300"
+          >
+            <div class="flex items-center gap-3 mb-3">
+              <div class="bg-blue-100 p-2 rounded-xl">
+                <i data-lucide="shield-check" class="w-5 h-5 text-blue-600"></i>
+              </div>
+              <h4 class="font-black text-slate-900 text-lg leading-tight">
+                Más seguridad hídrica
+              </h4>
             </div>
+            <ul class="space-y-2">
+              <li
+                class="text-sm font-bold text-slate-600 flex items-start gap-3"
+              >
+                <i
+                  data-lucide="check-circle-2"
+                  class="w-4 h-4 text-blue-500 shrink-0 mt-0.5"
+                ></i>
+                <span>Más cuencas evaluadas integralmente</span>
+              </li>
+              <li
+                class="text-sm font-bold text-slate-600 flex items-start gap-3"
+              >
+                <i
+                  data-lucide="check-circle-2"
+                  class="w-4 h-4 text-blue-500 shrink-0 mt-0.5"
+                ></i>
+                <span>Decisiones basadas en evidencia técnica</span>
+              </li>
+              <li
+                class="text-sm font-bold text-slate-600 flex items-start gap-3"
+              >
+                <i
+                  data-lucide="check-circle-2"
+                  class="w-4 h-4 text-blue-500 shrink-0 mt-0.5"
+                ></i>
+                <span>Prevención efectiva de crisis de escasez</span>
+              </li>
+            </ul>
+          </div>
 
-            <div class="grid grid-cols-2 gap-4 auto-rows-fr">
-                <!-- Benefit 1 -->
-                <div class="glass-module p-5 border-t-4 border-blue-600 reveal delay-1">
-                    <h4 class="font-black text-slate-900 text-lg mb-3">Más seguridad hídrica</h4>
-                    <ul class="space-y-2">
-                        <li class="text-sm font-bold text-slate-600 flex gap-2"><span>✔</span> Más cuencas evaluadas
-                            integralmente</li>
-                        <li class="text-sm font-bold text-slate-600 flex gap-2"><span>✔</span> Decisiones basadas en
-                            evidencia</li>
-                        <li class="text-sm font-bold text-slate-600 flex gap-2"><span>✔</span> Prevención de crisis de
-                            escasez</li>
-                    </ul>
-                </div>
-
-                <!-- Benefit 2 -->
-                <div class="glass-module p-5 border-t-4 border-blue-600 reveal delay-2">
-                    <h4 class="font-black text-slate-900 text-lg mb-3">Agua más segura para las familias</h4>
-                    <ul class="space-y-2">
-                        <li class="text-sm font-bold text-slate-600 flex gap-2"><span>✔</span> Diagnósticos de calidad
-                            focalizados</li>
-                        <li class="text-sm font-bold text-slate-600 flex gap-2"><span>✔</span> Intervenciones en zonas
-                            críticas</li>
-                        <li class="text-sm font-bold text-slate-600 flex gap-2"><span>✔</span> Menor exposición a agua
-                            contaminada</li>
-                    </ul>
-                </div>
-
-                <!-- Benefit 3 -->
-                <div class="glass-module p-5 border-t-4 border-blue-600 reveal delay-3">
-                    <h4 class="font-black text-slate-900 text-lg mb-3">Menor contaminación de ríos</h4>
-                    <ul class="space-y-2">
-                        <li class="text-sm font-bold text-slate-600 flex gap-2"><span>✔</span> Vertimientos formalizados
-                        </li>
-                        <li class="text-sm font-bold text-slate-600 flex gap-2"><span>✔</span> Usuarios productivos
-                            regulados</li>
-                        <li class="text-sm font-bold text-slate-600 flex gap-2"><span>✔</span> Control de descargas
-                            contaminantes</li>
-                    </ul>
-                </div>
-
-                <!-- Benefit 4 -->
-                <div class="glass-module p-5 border-t-4 border-blue-600 reveal delay-4">
-                    <h4 class="font-black text-slate-900 text-lg mb-3">Protección efectiva de ecosistemas</h4>
-                    <ul class="space-y-2">
-                        <li class="text-sm font-bold text-slate-600 flex gap-2"><span>✔</span> 400 fiscalizaciones
-                            anuales</li>
-                        <li class="text-sm font-bold text-slate-600 flex gap-2"><span>✔</span> Cumplimiento ambiental
-                        </li>
-                        <li class="text-sm font-bold text-slate-600 flex gap-2"><span>✔</span> Conservación de fuentes
-                            naturales</li>
-                    </ul>
-                </div>
+          <!-- Benefit 2: Families -->
+          <div
+            class="glass-module p-4 border-l-4 border-cyan-500 reveal delay-2 hover:translate-x-2 transition-all duration-300"
+          >
+            <div class="flex items-center gap-3 mb-3">
+              <div class="bg-cyan-100 p-2 rounded-xl">
+                <i data-lucide="home" class="w-5 h-5 text-cyan-600"></i>
+              </div>
+              <h4 class="font-black text-slate-900 text-lg leading-tight">
+                Agua segura para familias
+              </h4>
             </div>
+            <ul class="space-y-2">
+              <li
+                class="text-sm font-bold text-slate-600 flex items-start gap-3"
+              >
+                <i
+                  data-lucide="check-circle-2"
+                  class="w-4 h-4 text-cyan-500 shrink-0 mt-0.5"
+                ></i>
+                <span>Diagnósticos de calidad focalizados</span>
+              </li>
+              <li
+                class="text-sm font-bold text-slate-600 flex items-start gap-3"
+              >
+                <i
+                  data-lucide="check-circle-2"
+                  class="w-4 h-4 text-cyan-500 shrink-0 mt-0.5"
+                ></i>
+                <span>Intervenciones en zonas críticas</span>
+              </li>
+              <li
+                class="text-sm font-bold text-slate-600 flex items-start gap-3"
+              >
+                <i
+                  data-lucide="check-circle-2"
+                  class="w-4 h-4 text-cyan-500 shrink-0 mt-0.5"
+                ></i>
+                <span>Menor exposición a agua contaminada</span>
+              </li>
+            </ul>
+          </div>
 
-            <!-- Country Result -->
-            <div class="mt-6 glass-module bg-slate-900 border-none p-6 reveal delay-5">
-                <div class="flex gap-8 items-center">
-                    <div class="flex-shrink-0">
-                        <span
-                            class="text-blue-400 font-black text-xl vertical-text tracking-tighter uppercase whitespace-nowrap">Resumen</span>
-                    </div>
-                    <div class="flex-grow">
-                        <h5 class="text-white font-black text-lg mb-3 footer-border-label uppercase tracking-widest">
-                            Resultado País</h5>
-                        <div class="grid grid-cols-3 gap-y-2 gap-x-6">
-                            <li class="text-xs font-bold text-blue-100 flex gap-2"><span>◆</span> Mejor salud pública
-                            </li>
-                            <li class="text-xs font-bold text-blue-100 flex gap-2"><span>◆</span> Mayor sostenibilidad
-                                productiva</li>
-                            <li class="text-xs font-bold text-blue-100 flex gap-2"><span>◆</span> Protección ambiental
-                            </li>
-                            <li class="text-xs font-bold text-blue-100 flex gap-2"><span>◆</span> Mayor sostenibilidad
-                            </li>
-                            <li class="text-xs font-bold text-blue-100 flex gap-2"><span>◆</span> Confianza en la
-                                gestión del agua</li>
-                            <li class="text-xs font-bold text-blue-100 flex gap-2"><span>◆</span> Confianza en la
-                                gestión del agua</li>
-                        </div>
-                    </div>
+          <!-- Benefit 3: Pollution -->
+          <div
+            class="glass-module p-4 border-l-4 border-indigo-600 reveal delay-3 hover:translate-x-2 transition-all duration-300"
+          >
+            <div class="flex items-center gap-3 mb-3">
+              <div class="bg-indigo-100 p-2 rounded-xl">
+                <i data-lucide="waves" class="w-5 h-5 text-indigo-600"></i>
+              </div>
+              <h4 class="font-black text-slate-900 text-lg leading-tight">
+                Menor contaminación de ríos
+              </h4>
+            </div>
+            <ul class="space-y-2">
+              <li
+                class="text-sm font-bold text-slate-600 flex items-start gap-3"
+              >
+                <i
+                  data-lucide="check-circle-2"
+                  class="w-4 h-4 text-indigo-500 shrink-0 mt-0.5"
+                ></i>
+                <span>Vertimientos formalizados y controlados</span>
+              </li>
+              <li
+                class="text-sm font-bold text-slate-600 flex items-start gap-3"
+              >
+                <i
+                  data-lucide="check-circle-2"
+                  class="w-4 h-4 text-indigo-500 shrink-0 mt-0.5"
+                ></i>
+                <span>Usuarios productivos eco-eficientes</span>
+              </li>
+              <li
+                class="text-sm font-bold text-slate-600 flex items-start gap-3"
+              >
+                <i
+                  data-lucide="check-circle-2"
+                  class="w-4 h-4 text-indigo-500 shrink-0 mt-0.5"
+                ></i>
+                <span>Control estricto de descargas residuales</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Benefit 4: Ecosystems -->
+          <div
+            class="glass-module p-4 border-l-4 border-emerald-500 reveal delay-4 hover:translate-x-2 transition-all duration-300"
+          >
+            <div class="flex items-center gap-3 mb-3">
+              <div class="bg-emerald-100 p-2 rounded-xl">
+                <i data-lucide="trees" class="w-5 h-5 text-emerald-600"></i>
+              </div>
+              <h4 class="font-black text-slate-900 text-lg leading-tight">
+                Protección de ecosistemas
+              </h4>
+            </div>
+            <ul class="space-y-2">
+              <li
+                class="text-sm font-bold text-slate-600 flex items-start gap-3"
+              >
+                <i
+                  data-lucide="check-circle-2"
+                  class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5"
+                ></i>
+                <span>400 fiscalizaciones anuales proactivas</span>
+              </li>
+              <li
+                class="text-sm font-bold text-slate-600 flex items-start gap-3"
+              >
+                <i
+                  data-lucide="check-circle-2"
+                  class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5"
+                ></i>
+                <span>Cumplimiento del estándar ambiental</span>
+              </li>
+              <li
+                class="text-sm font-bold text-slate-600 flex items-start gap-3"
+              >
+                <i
+                  data-lucide="check-circle-2"
+                  class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5"
+                ></i>
+                <span>Conservación de fuentes de agua naturales</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Country Result (Resumen Premium) -->
+        <div
+          class="mt-1 glass-module bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-950 border-none p-4 reveal delay-5 shadow-2xl relative overflow-hidden rounded-[1.5rem]"
+        >
+          <div
+            class="absolute top-0 right-0 w-80 h-80 bg-blue-500/10 rounded-full -mr-32 -mt-32 blur-[100px]"
+          ></div>
+          <div
+            class="absolute bottom-0 left-0 w-64 h-64 bg-cyan-500/5 rounded-full -ml-20 -mb-20 blur-[80px]"
+          ></div>
+          
+          <div class="flex gap-6 items-center relative z-10 h-full">
+            <div class="flex-shrink-0 border-r border-white/20 pr-6 flex items-center justify-center">
+              <span
+                class="text-blue-400 font-black text-xl vertical-text tracking-[0.2em] uppercase"
+                >RESUMEN</span
+              >
+            </div>
+            
+            <div class="flex-grow">
+              <h5
+                class="text-cyan-400 font-extrabold text-[9px] mb-2 uppercase tracking-[0.5em] flex items-center gap-4"
+              >
+                <span class="h-px bg-cyan-400/30 flex-grow"></span>
+                Impacto en el Resultado País al 2030
+                <span class="h-px bg-cyan-400/30 flex-grow"></span>
+              </h5>
+              
+              <div class="grid grid-cols-3 gap-y-3 gap-x-8">
+                <!-- Item 1 -->
+                <div class="flex items-center gap-3 group">
+                  <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center shadow-lg border border-white/10 group-hover:bg-white/20 transition-all">
+                    <i data-lucide="heart" class="w-4 h-4 text-rose-400"></i>
+                  </div>
+                  <div>
+                    <p class="text-[8px] text-blue-300 font-black uppercase tracking-wider">Bienestar</p>
+                    <p class="text-[11px] font-extrabold text-white leading-tight">Salud pública</p>
+                  </div>
                 </div>
+                
+                <!-- Item 2 -->
+                <div class="flex items-center gap-3 group">
+                  <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center shadow-lg border border-white/10 group-hover:bg-white/20 transition-all">
+                    <i data-lucide="trending-up" class="w-4 h-4 text-emerald-400"></i>
+                  </div>
+                  <div>
+                    <p class="text-[8px] text-emerald-300 font-black uppercase tracking-wider">Economía</p>
+                    <p class="text-[11px] font-extrabold text-white leading-tight">Sostenibilidad</p>
+                  </div>
+                </div>
+                
+                <!-- Item 3 -->
+                <div class="flex items-center gap-3 group">
+                  <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center shadow-lg border border-white/10 group-hover:bg-white/20 transition-all">
+                    <i data-lucide="shield-check" class="w-4 h-4 text-cyan-400"></i>
+                  </div>
+                  <div>
+                    <p class="text-[8px] text-cyan-300 font-black uppercase tracking-wider">Entorno</p>
+                    <p class="text-[11px] font-extrabold text-white leading-tight">Protección ambiental</p>
+                  </div>
+                </div>
+                
+                <!-- Item 4 -->
+                <div class="flex items-center gap-3 group">
+                  <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center shadow-lg border border-white/10 group-hover:bg-white/20 transition-all">
+                    <i data-lucide="bar-chart-3" class="w-4 h-4 text-orange-400"></i>
+                  </div>
+                  <div>
+                    <p class="text-[8px] text-orange-300 font-black uppercase tracking-wider">Desarrollo</p>
+                    <p class="text-[11px] font-extrabold text-white leading-tight">Metas nacionales</p>
+                  </div>
+                </div>
+                
+                <!-- Item 5 -->
+                <div class="flex items-center gap-3 group">
+                  <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center shadow-lg border border-white/10 group-hover:bg-white/20 transition-all">
+                    <i data-lucide="users" class="w-4 h-4 text-indigo-400"></i>
+                  </div>
+                  <div>
+                    <p class="text-[8px] text-indigo-300 font-black uppercase tracking-wider">Sociedad</p>
+                    <p class="text-[11px] font-extrabold text-white leading-tight">Confianza ciudadana</p>
+                  </div>
+                </div>
+                
+                <!-- Item 6 -->
+                <div class="flex items-center gap-3 group">
+                  <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center shadow-lg border border-white/10 group-hover:bg-white/20 transition-all">
+                    <i data-lucide="target" class="w-4 h-4 text-blue-400"></i>
+                  </div>
+                  <div>
+                    <p class="text-[8px] text-blue-300 font-black uppercase tracking-wider">Meta Final</p>
+                    <p class="text-[11px] font-extrabold text-white leading-tight">Seguridad Total</p>
+                  </div>
+                </div>
+              </div>
             </div>
-
-            <div class="mt-auto text-center p-4 border-t border-slate-100">
-                <p class="text-xl text-blue-900 font-black italic">
-                    "Regular, evaluar y fiscalizar hoy es garantizar agua segura mañana."
-                </p>
-            </div>
-        </section>
+          </div>
+        </div>
+      </section>
     </div>
 
     <div class="slide" id="s5">
-        <section class="global-slide-v8 reveal">
-            <header class="section-header-v8">
-                <span class="section-label-v8">IMPLEMENTACIÓN</span>
-                <h2>Ruta para la implementación de la estrategia</h2>
-            </header>
+      <section class="global-slide-v8 reveal">
+        <header class="section-header-v8">
+          <span class="section-label-v8">IMPLEMENTACIÓN</span>
+          <h2>Ruta para la implementación de la estrategia</h2>
+        </header>
 
-            <div class="mb-4">
-                <span class="text-xs font-black text-blue-600 uppercase tracking-widest">Plan Estratégico Institucional
-                    – Autoridad Nacional del Agua</span>
-            </div>
+        <div class="mb-4">
+          <span
+            class="text-xs font-black text-blue-600 uppercase tracking-widest"
+            >Plan Estratégico Institucional – Autoridad Nacional del Agua</span
+          >
+        </div>
 
-            <div class="grid grid-cols-12 gap-8 flex-grow">
-                <!-- Left Column: Immediate and Next Steps -->
-                <div class="col-span-12 flex flex-col gap-4">
-                    <div class="grid grid-cols-2 gap-6">
-                        <!-- immediate Route -->
-                        <div class="flex flex-col gap-3">
-                            <h3
-                                class="text-blue-700 font-black text-lg uppercase tracking-tight border-l-4 border-blue-600 pl-3">
-                                RUTA INMEDIATA</h3>
-                            <div class="glass-module p-4 reveal delay-1">
-                                <ul class="space-y-3">
-                                    <li class="text-sm font-bold text-slate-700 leading-tight flex gap-2"> Aprobación
-                                        del PEI 2025–2030 mediante Resolución Ministerial</li>
-                                    <li class="text-sm font-bold text-slate-700 leading-tight flex gap-2"> Publicación
-                                        oficial en el Diario Oficial El Peruano</li>
-                                    <li class="text-sm font-bold text-slate-700 leading-tight flex gap-2"> Difusión
-                                        institucional y alineamiento interno (PEI–POI–Presupuesto)</li>
-                                </ul>
-                            </div>
-                        </div>
+        <div class="grid grid-cols-12 gap-6 flex-grow relative">
+          <!-- Storytelling Roadmap Vector Line (Decorative) -->
+          <div class="absolute top-20 left-1/2 -translate-x-1/2 w-[2px] h-[60%] bg-gradient-to-b from-blue-500 via-indigo-500 to-transparent opacity-20 hidden md:block"></div>
 
-                        <!-- Next Steps -->
-                        <div class="flex flex-col gap-3">
-                            <h3
-                                class="text-slate-700 font-black text-lg uppercase tracking-tight border-l-4 border-slate-400 pl-3">
-                                PRÓXIMOS PASOS CLAVE</h3>
-                            <div class="glass-module p-4 reveal delay-2">
-                                <ul class="space-y-3">
-                                    <li class="text-sm font-bold text-slate-700 leading-tight">Aprobación del PEI
-                                        2025–2030 mediante Resolución Ministerial</li>
-                                    <li class="text-sm font-bold text-slate-700 leading-tight">Publicación oficial en el
-                                        Diario Oficial El Peruano</li>
-                                    <li class="text-sm font-bold text-slate-700 leading-tight">Publicación
-                                        oficial<br>Entrada en vigencia</li>
-                                    <li class="text-sm font-bold text-slate-700 leading-tight">
-                                        Alineamiento institucional
-                                        <div class="pl-4 mt-1 text-xs text-slate-500 font-bold space-y-1">
-                                            <div>• Adecuación del POI</div>
-                                            <div>• Ajustes presupuestales</div>
-                                            <div>• Seguimiento de indicadores</div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Final impact -->
-                    <div class="mt-auto grid grid-cols-12 gap-6 items-center">
-                        <div class="col-span-4">
-                            <div class="bg-blue-900 p-5 rounded-2xl text-center shadow-xl">
-                                <p class="text-white text-sm font-black leading-snug">
-                                    El PEI 2025–2030 habilita la gestión estratégica institucional.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-span-8">
-                            <div class="glass-module bg-blue-50/50 border-blue-100 p-5">
-                                <p class="text-slate-700 text-sm font-bold leading-relaxed">
-                                    Su aprobación permite iniciar la ejecución articulada de metas, consolidar la
-                                    gobernanza hídrica y avanzar con predictibilidad hacia la seguridad hídrica y el
-                                    futuro deseado.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+          <!-- Phase 1: The Activation (Lanzamiento) -->
+          <div class="col-span-12 md:col-span-6 flex flex-col gap-6 relative">
+            <div class="flex items-center gap-4 mb-2">
+              <div class="relative">
+                <div class="absolute inset-0 bg-blue-500 blur-lg opacity-40 animate-pulse"></div>
+                <div class="w-14 h-14 rounded-2xl bg-blue-600 flex items-center justify-center text-white shadow-2xl relative z-10 border border-blue-400">
+                  <i data-lucide="rocket" class="w-7 h-7"></i>
                 </div>
+              </div>
+              <div>
+                <h3 class="text-blue-700 font-black text-2xl uppercase tracking-tighter leading-none">FASE DE ACTIVACIÓN</h3>
+                <p class="text-[10px] text-blue-500 font-bold tracking-[0.3em] uppercase mt-1">Ruta Inmediata</p>
+              </div>
             </div>
-        </section>
+            
+            <div class="space-y-4">
+              <div class="group relative">
+                <div class="absolute -left-2 top-0 bottom-0 w-1 bg-blue-600 rounded-full"></div>
+                <div class="glass-module p-4 bg-gradient-to-r from-white to-blue-50/30 border-none shadow-md group-hover:shadow-xl transition-all">
+                  <p class="text-[13px] font-black text-slate-800 leading-tight">
+                    Aprobación del PEI 2025–2030 mediante Resolución Ministerial
+                  </p>
+                </div>
+              </div>
+
+              <div class="group relative">
+                <div class="absolute -left-2 top-0 bottom-0 w-1 bg-blue-500 rounded-full opacity-70"></div>
+                <div class="glass-module p-4 bg-gradient-to-r from-white to-blue-50/30 border-none shadow-md group-hover:shadow-xl transition-all">
+                  <p class="text-[13px] font-black text-slate-800 leading-tight">
+                    Publicación oficial en el Diario Oficial El Peruano
+                  </p>
+                </div>
+              </div>
+
+              <div class="group relative">
+                <div class="absolute -left-2 top-0 bottom-0 w-1 bg-blue-400 rounded-full opacity-50"></div>
+                <div class="glass-module p-4 bg-gradient-to-r from-white to-blue-50/30 border-none shadow-md group-hover:shadow-xl transition-all">
+                  <p class="text-[13px] font-black text-slate-800 leading-tight">
+                    Difusión institucional y alineamiento interno (PEI–POI–Presupuesto)
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phase 2: The Consolidation (Vuelo) -->
+          <div class="col-span-12 md:col-span-6 flex flex-col gap-6 relative">
+            <div class="flex items-center gap-4 mb-2">
+              <div class="relative">
+                <div class="absolute inset-0 bg-indigo-500 blur-lg opacity-40 animate-pulse"></div>
+                <div class="w-14 h-14 rounded-2xl bg-indigo-600 flex items-center justify-center text-white shadow-2xl relative z-10 border border-indigo-400">
+                  <i data-lucide="compass" class="w-7 h-7"></i>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-indigo-700 font-black text-2xl uppercase tracking-tighter leading-none">CONSOLIDACIÓN</h3>
+                <p class="text-[10px] text-indigo-500 font-bold tracking-[0.3em] uppercase mt-1">Próximos Pasos Clave</p>
+              </div>
+            </div>
+
+            <div class="space-y-3">
+              <div class="flex gap-4 items-center glass-module p-3 border-none bg-slate-50/80 grayscale hover:grayscale-0 transition-all">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-slate-400"></i>
+                <p class="text-[11px] font-bold text-slate-500 italic">Aprobación del PEI 2025–2030 mediante Resolución Ministerial</p>
+              </div>
+
+              <div class="flex gap-4 items-center glass-module p-3 border-none bg-slate-50/80 grayscale hover:grayscale-0 transition-all">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-slate-400"></i>
+                <p class="text-[11px] font-bold text-slate-500 italic">Publicación oficial en el Diario Oficial El Peruano</p>
+              </div>
+
+              <div class="glass-module p-4 bg-indigo-900 text-white shadow-lg border-none transform hover:scale-[1.02] transition-transform">
+                <div class="flex gap-4 items-center">
+                  <div class="p-2 bg-white/10 rounded-lg">
+                    <i data-lucide="flag" class="w-5 h-5"></i>
+                  </div>
+                  <p class="text-[13px] font-extrabold leading-tight uppercase tracking-wide">
+                    Publicación oficial<br /><span class="text-indigo-300">Entrada en vigencia</span>
+                  </p>
+                </div>
+              </div>
+
+              <div class="glass-module p-4 bg-slate-900 text-white border-none shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-2 opacity-10">
+                  <i data-lucide="settings" class="w-12 h-12"></i>
+                </div>
+                <div class="relative z-10">
+                  <p class="text-[13px] font-black uppercase tracking-widest text-indigo-400 mb-2">Alineamiento institucional</p>
+                  <div class="grid grid-cols-1 gap-2 text-[11px] text-slate-300 font-bold">
+                    <div class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full shadow-[0_0_8px_rgba(59,130,246,0.8)]"></span> Adecuación del POI</div>
+                    <div class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-indigo-500 rounded-full shadow-[0_0_8px_rgba(99,102,241,0.8)]"></span> Ajustes presupuestales</div>
+                    <div class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-cyan-500 rounded-full shadow-[0_0_8px_rgba(6,182,212,0.8)]"></span> Seguimiento de indicadores</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- The Climax/Result (Story Ending) -->
+          <div class="col-span-12 mt-4 pt-4 border-t border-slate-100">
+            <div class="grid grid-cols-12 gap-6 items-stretch">
+              <div class="col-span-4 self-center">
+                <div class="relative group">
+                  <div class="absolute inset-0 bg-blue-900 rounded-[2rem] blur-xl opacity-20 group-hover:opacity-40 transition-opacity"></div>
+                  <div class="bg-gradient-to-br from-blue-900 to-indigo-950 p-6 rounded-[2rem] text-center shadow-2xl relative z-10">
+                    <p class="text-white text-[14px] font-black leading-tight italic">
+                      "El PEI 2025–2030 habilita la gestión estratégica institucional."
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-span-8">
+                <div class="h-full glass-module bg-white border border-blue-50 p-6 rounded-[2rem] shadow-sm flex items-center relative overflow-hidden">
+                  <div class="absolute top-0 right-0 w-40 h-40 bg-blue-50 rounded-full -mr-20 -mt-20 opacity-50"></div>
+                  <div class="flex gap-6 items-center relative z-10">
+                    <div class="w-14 h-14 rounded-full bg-blue-600 flex items-center justify-center flex-shrink-0 shadow-lg">
+                      <i data-lucide="landmark" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <p class="text-slate-700 text-[14px] font-extrabold leading-relaxed">
+                      Su aprobación permite iniciar la ejecución articulada de metas, consolidar la gobernanza hídrica y avanzar con predictibilidad hacia la seguridad hídrica y el futuro deseado.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
 
     <div class="slide" id="s6">
-        <section class="global-slide-v8 reveal">
-            <header class="section-header-v8">
-                <span class="section-label-v8">REFERENCIAS</span>
-                <h2>Fuentes de información y bibliografía</h2>
-            </header>
+      <section class="global-slide-v8 reveal">
+        <header class="section-header-v8">
+          <span class="section-label-v8">REFERENCIAS</span>
+          <h2>Fuentes de información y bibliografía</h2>
+        </header>
 
-            <div class="glass-module p-6 overflow-y-auto max-h-[70vh] flex-grow">
-                <ul class="space-y-4">
-                    <li class="text-xs font-medium text-slate-700 leading-relaxed border-b border-slate-100 pb-3">
-                        World Bank. (2023). P173636: Documento del proyecto. <a
-                            href="https://documents1.worldbank.org/curated/en/099062023100531967/pdf/P17363602652300490a20b067e3b55cf68d.pdf"
-                            target="_blank"
-                            class="text-blue-600 hover:underline break-all">https://documents1.worldbank.org/curated/en/099062023100531967/pdf/P17363602652300490a20b067e3b55cf68d.pdf</a>
-                    </li>
-                    <li class="text-xs font-medium text-slate-700 leading-relaxed border-b border-slate-100 pb-3">
-                        Organización para la Cooperación y el Desarrollo Económicos. (2021). Gobernanza del agua en el
-                        Perú. <a
-                            href="https://www.oecd.org/content/dam/oecd/es/publications/reports/2021/03/water-governance-in-peru_0980e96a/f826f55f-es.pdf"
-                            target="_blank"
-                            class="text-blue-600 hover:underline break-all">https://www.oecd.org/content/dam/oecd/es/publications/reports/2021/03/water-governance-in-peru_0980e96a/f826f55f-es.pdf</a>
-                    </li>
-                    <li class="text-xs font-medium text-slate-700 leading-relaxed border-b border-slate-100 pb-3">
-                        Defensoría del Pueblo. (2024). Informe defensorial N.º 227. <a
-                            href="https://www.defensoria.gob.pe/wp-content/uploads/2024/10/Informe-defensorial-n.%C2%B0-227-.pdf"
-                            target="_blank"
-                            class="text-blue-600 hover:underline break-all">https://www.defensoria.gob.pe/wp-content/uploads/2024/10/Informe-defensorial-n.%C2%B0-227-.pdf</a>
-                    </li>
-                    <li class="text-xs font-medium text-slate-700 leading-relaxed border-b border-slate-100 pb-3">
-                        El Comercio. (s.f.). Capacidad de almacenamiento de agua en el Perú es 10 veces menor que en la
-                        región. <a
-                            href="https://elcomercio.pe/economia/opinion/agua-capacidad-de-almacenamiento-de-agua-en-el-peru-es-10-veces-menor-que-en-la-region-sequia-noticia/"
-                            target="_blank"
-                            class="text-blue-600 hover:underline break-all">https://elcomercio.pe/economia/opinion/agua-capacidad-de-almacenamiento-de-agua-en-el-peru-es-10-veces-menor-que-en-la-region-sequia-noticia/</a>
-                    </li>
-                    <li class="text-xs font-medium text-slate-700 leading-relaxed border-b border-slate-100 pb-3">
-                        Instituto Nacional de Estadística e Informática. (s.f.). Publicación digital, Capítulo 02. <a
-                            href="https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1863/cap02.pdf"
-                            target="_blank"
-                            class="text-blue-600 hover:underline break-all">https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1863/cap02.pdf</a>
-                    </li>
-                    <li class="text-xs font-medium text-slate-700 leading-relaxed border-b border-slate-100 pb-3">
-                        Energiminas. (2023, 4 de septiembre). Sin agua: más de 3 millones de peruanos aún no cuentan con
-                        el recurso hídrico. <a
-                            href="https://energiminas.com/2023/09/04/sin-agua-mas-de-3-millones-de-peruanos-aun-no-cuentan-con-el-recurso-hidrico/"
-                            target="_blank"
-                            class="text-blue-600 hover:underline break-all">https://energiminas.com/2023/09/04/sin-agua-mas-de-3-millones-de-peruanos-aun-no-cuentan-con-el-recurso-hidrico/</a>
-                    </li>
-                    <li class="text-xs font-medium text-slate-700 leading-relaxed border-b border-slate-100 pb-3">
-                        SciELO Perú. (2018). Artículo científico. <a
-                            href="http://www.scielo.org.pe/scielo.php?pid=S1726-46342018000200020&script=sci_arttext&tlng=es"
-                            target="_blank"
-                            class="text-blue-600 hover:underline break-all">http://www.scielo.org.pe/scielo.php?pid=S1726-46342018000200020&script=sci_arttext&tlng=es</a>
-                    </li>
-                    <li class="text-xs font-medium text-slate-700 leading-relaxed border-b border-slate-100 pb-3">
-                        Water Partners Perú. (s.f.). ¿Cómo nos afecta la falta de agua en el Perú? <a
-                            href="https://waterpartners.com.pe/falta-de-agua-en-peru-como-nos-afecta/" target="_blank"
-                            class="text-blue-600 hover:underline break-all">https://waterpartners.com.pe/falta-de-agua-en-peru-como-nos-afecta/</a>
-                    </li>
-                    <li class="text-xs font-medium text-slate-700 leading-relaxed border-b border-slate-100 pb-3">
-                        Observatorio de Conflictos Mineros de América Latina. (s.f.). El 30% de conflictos sociales en
-                        Perú surgen por la defensa al agua. <a
-                            href="https://www.ocmal.org/el-30-de-conflictos-sociales-en-peru-surgen-por-la-defensa-al-agua/"
-                            target="_blank"
-                            class="text-blue-600 hover:underline break-all">https://www.ocmal.org/el-30-de-conflictos-sociales-en-peru-surgen-por-la-defensa-al-agua/</a>
-                    </li>
-                    <li class="text-xs font-medium text-slate-700 leading-relaxed border-b border-slate-100 pb-3">
-                        La República. (2025, 22 de octubre). Perú: Recomiendan a regiones velar por seguridad hídrica en
-                        su gestión. <a
-                            href="https://especial.larepublica.pe/la-republica-sostenible/2025/10/22/peru-recomiendan-a-regiones-velar-por-seguridad-hidrica-en-su-gestion-2076360"
-                            target="_blank"
-                            class="text-blue-600 hover:underline break-all">https://especial.larepublica.pe/la-republica-sostenible/2025/10/22/peru-recomiendan-a-regiones-velar-por-seguridad-hidrica-en-su-gestion-2076360</a>
-                    </li>
-                    <li class="text-xs font-medium text-slate-700 leading-relaxed">
-                        Autoridad Nacional del Agua. (2024, 31 de mayo). ¿Qué es cultura del agua? Gobierno del Perú. <a
-                            href="https://www.gob.pe/64330-autoridad-nacional-del-agua-que-es-cultura-del-agua"
-                            target="_blank"
-                            class="text-blue-600 hover:underline break-all">https://www.gob.pe/64330-autoridad-nacional-del-agua-que-es-cultura-del-agua</a>
-                    </li>
-                </ul>
-            </div>
-        </section>
+        <div class="glass-module p-6 overflow-y-auto max-h-[70vh] flex-grow">
+          <ul class="space-y-4">
+            <li
+              class="text-xs font-medium text-slate-700 leading-relaxed border-b border-slate-100 pb-3"
+            >
+              World Bank. (2023). P173636: Documento del proyecto.
+              <a
+                href="https://documents1.worldbank.org/curated/en/099062023100531967/pdf/P17363602652300490a20b067e3b55cf68d.pdf"
+                target="_blank"
+                class="text-blue-600 hover:underline break-all"
+                >https://documents1.worldbank.org/curated/en/099062023100531967/pdf/P17363602652300490a20b067e3b55cf68d.pdf</a
+              >
+            </li>
+            <li
+              class="text-xs font-medium text-slate-700 leading-relaxed border-b border-slate-100 pb-3"
+            >
+              Organización para la Cooperación y el Desarrollo Económicos.
+              (2021). Gobernanza del agua en el Perú.
+              <a
+                href="https://www.oecd.org/content/dam/oecd/es/publications/reports/2021/03/water-governance-in-peru_0980e96a/f826f55f-es.pdf"
+                target="_blank"
+                class="text-blue-600 hover:underline break-all"
+                >https://www.oecd.org/content/dam/oecd/es/publications/reports/2021/03/water-governance-in-peru_0980e96a/f826f55f-es.pdf</a
+              >
+            </li>
+            <li
+              class="text-xs font-medium text-slate-700 leading-relaxed border-b border-slate-100 pb-3"
+            >
+              Defensoría del Pueblo. (2024). Informe defensorial N.º 227.
+              <a
+                href="https://www.defensoria.gob.pe/wp-content/uploads/2024/10/Informe-defensorial-n.%C2%B0-227-.pdf"
+                target="_blank"
+                class="text-blue-600 hover:underline break-all"
+                >https://www.defensoria.gob.pe/wp-content/uploads/2024/10/Informe-defensorial-n.%C2%B0-227-.pdf</a
+              >
+            </li>
+            <li
+              class="text-xs font-medium text-slate-700 leading-relaxed border-b border-slate-100 pb-3"
+            >
+              El Comercio. (s.f.). Capacidad de almacenamiento de agua en el
+              Perú es 10 veces menor que en la región.
+              <a
+                href="https://elcomercio.pe/economia/opinion/agua-capacidad-de-almacenamiento-de-agua-en-el-peru-es-10-veces-menor-que-en-la-region-sequia-noticia/"
+                target="_blank"
+                class="text-blue-600 hover:underline break-all"
+                >https://elcomercio.pe/economia/opinion/agua-capacidad-de-almacenamiento-de-agua-en-el-peru-es-10-veces-menor-que-en-la-region-sequia-noticia/</a
+              >
+            </li>
+            <li
+              class="text-xs font-medium text-slate-700 leading-relaxed border-b border-slate-100 pb-3"
+            >
+              Instituto Nacional de Estadística e Informática. (s.f.).
+              Publicación digital, Capítulo 02.
+              <a
+                href="https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1863/cap02.pdf"
+                target="_blank"
+                class="text-blue-600 hover:underline break-all"
+                >https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1863/cap02.pdf</a
+              >
+            </li>
+            <li
+              class="text-xs font-medium text-slate-700 leading-relaxed border-b border-slate-100 pb-3"
+            >
+              Energiminas. (2023, 4 de septiembre). Sin agua: más de 3 millones
+              de peruanos aún no cuentan con el recurso hídrico.
+              <a
+                href="https://energiminas.com/2023/09/04/sin-agua-mas-de-3-millones-de-peruanos-aun-no-cuentan-con-el-recurso-hidrico/"
+                target="_blank"
+                class="text-blue-600 hover:underline break-all"
+                >https://energiminas.com/2023/09/04/sin-agua-mas-de-3-millones-de-peruanos-aun-no-cuentan-con-el-recurso-hidrico/</a
+              >
+            </li>
+            <li
+              class="text-xs font-medium text-slate-700 leading-relaxed border-b border-slate-100 pb-3"
+            >
+              SciELO Perú. (2018). Artículo científico.
+              <a
+                href="http://www.scielo.org.pe/scielo.php?pid=S1726-46342018000200020&script=sci_arttext&tlng=es"
+                target="_blank"
+                class="text-blue-600 hover:underline break-all"
+                >http://www.scielo.org.pe/scielo.php?pid=S1726-46342018000200020&script=sci_arttext&tlng=es</a
+              >
+            </li>
+            <li
+              class="text-xs font-medium text-slate-700 leading-relaxed border-b border-slate-100 pb-3"
+            >
+              Water Partners Perú. (s.f.). ¿Cómo nos afecta la falta de agua en
+              el Perú?
+              <a
+                href="https://waterpartners.com.pe/falta-de-agua-en-peru-como-nos-afecta/"
+                target="_blank"
+                class="text-blue-600 hover:underline break-all"
+                >https://waterpartners.com.pe/falta-de-agua-en-peru-como-nos-afecta/</a
+              >
+            </li>
+            <li
+              class="text-xs font-medium text-slate-700 leading-relaxed border-b border-slate-100 pb-3"
+            >
+              Observatorio de Conflictos Mineros de América Latina. (s.f.). El
+              30% de conflictos sociales en Perú surgen por la defensa al agua.
+              <a
+                href="https://www.ocmal.org/el-30-de-conflictos-sociales-en-peru-surgen-por-la-defensa-al-agua/"
+                target="_blank"
+                class="text-blue-600 hover:underline break-all"
+                >https://www.ocmal.org/el-30-de-conflictos-sociales-en-peru-surgen-por-la-defensa-al-agua/</a
+              >
+            </li>
+            <li
+              class="text-xs font-medium text-slate-700 leading-relaxed border-b border-slate-100 pb-3"
+            >
+              La República. (2025, 22 de octubre). Perú: Recomiendan a regiones
+              velar por seguridad hídrica en su gestión.
+              <a
+                href="https://especial.larepublica.pe/la-republica-sostenible/2025/10/22/peru-recomiendan-a-regiones-velar-por-seguridad-hidrica-en-su-gestion-2076360"
+                target="_blank"
+                class="text-blue-600 hover:underline break-all"
+                >https://especial.larepublica.pe/la-republica-sostenible/2025/10/22/peru-recomiendan-a-regiones-velar-por-seguridad-hidrica-en-su-gestion-2076360</a
+              >
+            </li>
+            <li class="text-xs font-medium text-slate-700 leading-relaxed">
+              Autoridad Nacional del Agua. (2024, 31 de mayo). ¿Qué es cultura
+              del agua? Gobierno del Perú.
+              <a
+                href="https://www.gob.pe/64330-autoridad-nacional-del-agua-que-es-cultura-del-agua"
+                target="_blank"
+                class="text-blue-600 hover:underline break-all"
+                >https://www.gob.pe/64330-autoridad-nacional-del-agua-que-es-cultura-del-agua</a
+              >
+            </li>
+          </ul>
+        </div>
+      </section>
     </div>
 
     <div class="fixed bottom-8 right-8 flex items-center gap-4 z-50">
-        <div class="bg-white/80 backdrop-blur-md border border-slate-200 p-1.5 rounded-2xl shadow-2xl flex gap-2">
-            <button onclick="changeSlide(-1)" class="nav-btn hover:bg-slate-100">
-                <i data-lucide="chevron-left" class="w-6 h-6"></i>
-            </button>
-            <button onclick="changeSlide(1)"
-                class="nav-btn nav-btn-primary flex items-center gap-3 px-8 py-3 rounded-xl font-black tracking-tight">
-                <span>SIGUIENTE</span>
-                <i data-lucide="chevron-right" class="w-6 h-6"></i>
-            </button>
-        </div>
+      <div
+        class="bg-white/80 backdrop-blur-md border border-slate-200 p-1.5 rounded-2xl shadow-2xl flex gap-2"
+      >
+        <button onclick="changeSlide(-1)" class="nav-btn hover:bg-slate-100">
+          <i data-lucide="chevron-left" class="w-6 h-6"></i>
+        </button>
+        <button
+          onclick="changeSlide(1)"
+          class="nav-btn nav-btn-primary flex items-center gap-3 px-8 py-3 rounded-xl font-black tracking-tight"
+        >
+          <span>SIGUIENTE</span>
+          <i data-lucide="chevron-right" class="w-6 h-6"></i>
+        </button>
+      </div>
     </div>
 
-
     <div class="progress-bar-container">
-        <div id="progress" class="progress-bar"></div>
+      <div id="progress" class="progress-bar"></div>
     </div>
 
     <script>
-        lucide.createIcons();
+      lucide.createIcons();
 
-        let current = 0;
-        const slides = document.querySelectorAll('.slide');
-        const progress = document.getElementById('progress');
+      let current = 0;
+      const slides = document.querySelectorAll(".slide");
+      const progress = document.getElementById("progress");
 
-        function resetAnimations(slide) {
-            const elements = slide.querySelectorAll('.reveal');
-            elements.forEach(el => {
-                const animation = el.style.animation;
-                el.style.animation = 'none';
-                el.offsetHeight; // trigger reflow
-                el.style.animation = animation;
-            });
-        }
-
-        function changeSlide(dir) {
-            slides[current].classList.remove('active');
-            current = (current + dir + slides.length) % slides.length;
-            slides[current].classList.add('active');
-            progress.style.width = ((current + 1) / slides.length * 100) + '%';
-            resetAnimations(slides[current]);
-        }
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === "ArrowRight" || e.key === " ") changeSlide(1);
-            if (e.key === "ArrowLeft") changeSlide(-1);
+      function resetAnimations(slide) {
+        const elements = slide.querySelectorAll(".reveal");
+        elements.forEach((el) => {
+          const animation = el.style.animation;
+          el.style.animation = "none";
+          el.offsetHeight; // trigger reflow
+          el.style.animation = animation;
         });
+      }
 
-        // Initial state
-        progress.style.width = (1 / slides.length * 100) + '%';
-        resetAnimations(slides[0]);
+      function changeSlide(dir) {
+        slides[current].classList.remove("active");
+        current = (current + dir + slides.length) % slides.length;
+        slides[current].classList.add("active");
+        progress.style.width = ((current + 1) / slides.length) * 100 + "%";
+        resetAnimations(slides[current]);
+      }
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight" || e.key === " ") changeSlide(1);
+        if (e.key === "ArrowLeft") changeSlide(-1);
+      });
+
+      // Initial state
+      progress.style.width = (1 / slides.length) * 100 + "%";
+      resetAnimations(slides[0]);
     </script>
-
-</body>
-
+  </body>
 </html>

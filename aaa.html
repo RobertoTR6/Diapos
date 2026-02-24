@@ -59,8 +59,8 @@
         max-width: 1440px;
         max-height: 820px;
         background: white;
-        padding: 3.5rem 6rem;
-        /* Strategic padding */
+        padding: 1.5rem 5rem;
+        /* Balanced padding to avoid overflow */
         box-sizing: border-box;
         border-radius: 2.5rem;
         box-shadow:
@@ -217,25 +217,25 @@
         height: 100%;
         display: flex;
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 0.75rem;
       }
 
       .hero-title-v2 {
         text-align: left;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
       }
 
       .hero-title-v2 h1 {
-        font-size: 3rem;
+        font-size: 2.2rem;
         font-weight: 800;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.25rem;
         letter-spacing: -0.02em;
         line-height: 1.1;
         color: #1e3a8a;
       }
 
       .hero-title-v2 h2 {
-        font-size: 1.7rem;
+        font-size: 1.25rem;
         font-weight: 600;
         color: #475569;
       }
@@ -248,7 +248,7 @@
       .content-grid-v2 {
         display: grid;
         grid-template-columns: 1fr 1fr 1.2fr;
-        gap: 1.5rem;
+        gap: 1rem;
         flex-grow: 1;
         align-items: stretch;
       }
@@ -267,11 +267,11 @@
       }
 
       .num-xl {
-        font-size: 4.2rem;
+        font-size: 3.5rem;
         font-weight: 900;
         color: #1e3a8a;
         line-height: 1;
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
       }
 
       .subtext-xl {
@@ -415,8 +415,8 @@
       .metrics-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 1.25rem;
-        margin-bottom: 1.25rem;
+        gap: 1rem;
+        margin-bottom: 1rem;
       }
 
       .identical-card {
@@ -429,7 +429,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        min-height: 180px;
+        min-height: 130px;
       }
 
       .identical-card::before {
@@ -454,7 +454,7 @@
         font-size: 0.9rem;
         font-weight: 800;
         letter-spacing: 0.05em;
-        margin-bottom: 0.75rem;
+        margin-bottom: 0.4rem;
         text-transform: uppercase;
       }
 
@@ -467,10 +467,10 @@
       }
 
       .card-main-val {
-        font-size: 5.5rem;
+        font-size: 4rem;
         font-weight: 900;
         line-height: 1;
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
         display: flex;
         align-items: baseline;
         gap: 0.5rem;
@@ -527,21 +527,21 @@
       .ranking-container-v6 {
         display: grid;
         grid-template-columns: 1fr 1.4fr;
-        gap: 1.5rem;
-        margin-top: 1rem;
+        gap: 1rem;
+        margin-top: 0.75rem;
         align-items: stretch;
       }
 
       .rank-stack-v6 {
         display: flex;
         flex-direction: column;
-        gap: 0.75rem;
+        gap: 0.5rem;
       }
 
       .rank-card-v6 {
         background: white;
         border-radius: 1rem;
-        padding: 0.75rem 1.25rem;
+        padding: 0.5rem 1.25rem;
         display: flex;
         align-items: center;
         gap: 1rem;
@@ -551,8 +551,8 @@
       }
 
       .rank-icon-circle-v6 {
-        width: 48px;
-        height: 48px;
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -561,7 +561,7 @@
       }
 
       .rank-text-v6 h4 {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         font-weight: 800;
         line-height: 1.1;
       }
@@ -592,11 +592,13 @@
         bottom: 0;
         left: 0;
         right: 0;
-        background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
-        padding: 1rem;
+        background: linear-gradient(to top, rgba(30, 58, 138, 0.9) 0%, transparent 100%);
+        padding: 1.5rem 1.25rem 0.75rem;
         color: white;
-        font-size: 0.75rem;
-        font-weight: 700;
+        font-size: 0.8rem;
+        font-weight: 800;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
       }
 
       .ranking-row-v4 {
@@ -697,14 +699,14 @@
       .impact-v5 {
         display: flex;
         flex-direction: column;
-        gap: 0.75rem;
+        gap: 0.5rem;
         height: 100%;
       }
 
       .consequence-box-v5 {
         background: #f1f5f9;
         border-left: 6px solid #1e3a8a;
-        padding: 1rem 1.25rem;
+        padding: 0.75rem 1.25rem;
         border-radius: 0.75rem;
       }
 
@@ -730,7 +732,7 @@
 
       .impact-card-v5 {
         background: white;
-        padding: 0.75rem 1.25rem;
+        padding: 0.5rem 1.25rem;
         border-radius: 1rem;
         display: flex;
         align-items: center;
@@ -747,8 +749,8 @@
       }
 
       .icon-sq-v5 {
-        width: 52px;
-        height: 52px;
+        width: 42px;
+        height: 42px;
         border-radius: 0.75rem;
         display: flex;
         align-items: center;
@@ -772,7 +774,7 @@
       }
 
       .card-info-v5 h4 {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         font-weight: 800;
         color: #1e293b;
       }
@@ -1196,11 +1198,11 @@
 
               <!-- Card 2: Identical to Image -->
               <div class="identical-card card-orange reveal delay-2">
-                <div class="card-label-v3">ÍNDICE DE ESTRÉS HÍDRICO</div>
+                <div class="card-label-v3">NIVEL DE RIESGO HÍDRICO</div>
                 <div class="card-main-val">3.72</div>
                 <div class="card-sub-info">
                   indicador nacional de<br />
-                  <strong>estrés hídrico severo</strong>
+                  <strong>calidad y disponibilidad</strong>
                 </div>
                 <div class="wave-bg"></div>
               </div>
@@ -1233,8 +1235,8 @@
 
               <!-- Evidence Image Side -->
               <div class="evidence-side-v6">
-                <img src="estres_0.jpg" alt="Evidencia de Crisis" />
-                <div class="overlay-v6">ESTRÉS HÍDRICO NACIONAL</div>
+                <img src="Imagen1.png" alt="Evidencia de Crisis" />
+                <div class="overlay-v6">CRISIS DE CALIDAD DEL AGUA</div>
               </div>
             </div>
           </div>

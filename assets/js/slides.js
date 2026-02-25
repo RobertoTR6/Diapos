@@ -117,42 +117,52 @@ class PresentationEngine {
 
             <div class="ranking-container-v6 reveal delay-3">
               <div class="rank-stack-v6">
-                ${c.rankings.map(r => `
-                  <div class="rank-card-v6 !py-4">
-                    <div class="rank-icon-circle-v6 bg-${r.color}-soft w-12 h-12">
-                      <i data-lucide="${r.icon}" class="w-7 h-7"></i>
+                ${c.rankings.map(r => {
+                  if (r.color === 'red') {
+                    return `
+                      <div class="rank-card-v6 !py-4 flex justify-between items-center overflow-hidden">
+                        <div class="flex items-center gap-4">
+                          <div class="rank-icon-circle-v6 bg-red-50 w-12 h-12">
+                            <i data-lucide="${r.icon}" class="w-7 h-7 text-red-600"></i>
+                          </div>
+                          <div class="rank-text-v6">
+                            <h4 class="text-red-600 text-2xl font-black">${r.title}</h4>
+                            <p class="text-slate-500 font-bold leading-tight">${r.sub}</p>
+                          </div>
+                        </div>
+                        
+                        <!-- Mini Vertical Chart -->
+                        <div class="flex items-end gap-3 pr-2 h-24 border-l-2 border-slate-100 pl-8 ml-4 relative">
+                           <span class="absolute top-[-15px] right-0 text-[9px] font-black text-slate-500 uppercase tracking-tighter">Estrés Hídrico LA&C</span>
+                           ${c.chart.items.map(item => `
+                             <div class="flex flex-col items-center gap-1 group">
+                               <div class="w-6 bg-[#002060] rounded-sm flex items-center justify-center relative transition-all group-hover:bg-blue-800" style="height: ${(item.value / 4.47) * 70}px">
+                                 <span class="text-[8px] font-black text-white vertical-text absolute">${item.value.toFixed(2)}</span>
+                               </div>
+                               <span class="text-[8px] font-black text-slate-700 vertical-text uppercase">${item.country}</span>
+                             </div>
+                           `).join("")}
+                           <span class="absolute bottom-[-15px] left-6 text-[7px] font-bold text-slate-400">Fuente: (WRI) 2024</span>
+                        </div>
+                      </div>
+                    `;
+                  }
+                  return `
+                    <div class="rank-card-v6 !py-4">
+                      <div class="rank-icon-circle-v6 bg-${r.color}-soft w-12 h-12">
+                        <i data-lucide="${r.icon}" class="w-7 h-7"></i>
+                      </div>
+                      <div class="rank-text-v6">
+                        <h4 class="text-${r.color}-rank text-xl">${r.title}</h4>
+                        <p class="text-base">${r.sub}</p>
+                      </div>
                     </div>
-                    <div class="rank-text-v6">
-                      <h4 class="text-${r.color}-rank text-xl">${r.title}</h4>
-                      <p class="text-base">${r.sub}</p>
-                    </div>
-                  </div>
-                `).join("")}
+                  `;
+                }).join("")}
               </div>
-              <div class="evidence-side-v6 !bg-slate-950 p-6 flex flex-col justify-between border-none">
-                <div class="flex items-center justify-between mb-6">
-                  <h5 class="text-white text-xs font-black uppercase tracking-widest opacity-80">${c.chart.title}</h5>
-                  <div class="flex gap-2">
-                    <span class="w-2 h-2 rounded-full bg-blue-500"></span>
-                    <span class="w-2 h-2 rounded-full bg-red-500"></span>
-                  </div>
-                </div>
-                <div class="flex-grow flex flex-col justify-around gap-4">
-                  ${c.chart.items.map(item => `
-                    <div class="space-y-2">
-                      <div class="flex justify-between items-end">
-                        <span class="text-white font-black text-sm uppercase tracking-wider">${item.country}</span>
-                        <span class="text-xs ${item.highlight ? 'text-red-400' : 'text-blue-400'} font-bold">${item.value.toFixed(2)} - ${item.level}</span>
-                      </div>
-                      <div class="h-3 w-full bg-white/10 rounded-full overflow-hidden shadow-inner">
-                        <div class="h-full bg-gradient-to-r ${item.highlight ? 'from-red-600 to-red-400' : 'from-blue-600 to-blue-400'} rounded-full transition-all duration-1000" style="width: ${(item.value / 4.47) * 100}%"></div>
-                      </div>
-                    </div>
-                  `).join("")}
-                </div>
-                <div class="mt-6 pt-4 border-t border-white/10">
-                  <p class="text-[10px] text-slate-400 font-bold italic text-center">Fuente: World Resources Institute (WRI) 2024</p>
-                </div>
+              <div class="evidence-side-v6">
+                <img src="${c.evidence.img}" alt="Evidencia" loading="lazy" />
+                <div class="overlay-v6">${c.evidence.label}</div>
               </div>
             </div>
           </div>

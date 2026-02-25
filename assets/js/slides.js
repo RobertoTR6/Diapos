@@ -104,7 +104,7 @@ class PresentationEngine {
           <div class="col-span-2 glass-module module-scale">
             <div class="metrics-grid">
               ${c.metrics.map((m, i) => `
-                <div class="identical-card card-${m.color} reveal delay-${i + 1}">
+                <div class="identical-card card-${m.color} reveal delay-${i + 1} ${m.color === 'red' ? 'alert-pulse' : ''}">
                   <div class="card-label-v3">${m.label}</div>
                   <div class="card-main-val">
                     ${m.value} ${m.unit ? `<span class="unit-text">${m.unit}</span>` : ""}
@@ -120,41 +120,50 @@ class PresentationEngine {
                 ${c.rankings.map(r => {
                   if (r.color === 'red') {
                     return `
-                      <div class="rank-card-v6 !py-4 flex justify-between items-center overflow-hidden">
-                        <div class="flex items-center gap-4">
-                          <div class="rank-icon-circle-v6 bg-red-50 w-12 h-12">
-                            <i data-lucide="${r.icon}" class="w-7 h-7 text-red-600"></i>
+                      <div class="rank-card-v6 !py-3 flex justify-between items-center overflow-hidden min-h-[130px]">
+                        <div class="flex items-center gap-4 flex-1 pr-4">
+                          <div class="rank-icon-circle-v6 bg-red-50 w-14 h-14 border border-red-100 shadow-inner">
+                            <i data-lucide="${r.icon}" class="w-8 h-8 text-red-600"></i>
                           </div>
-                          <div class="rank-text-v6">
-                            <h4 class="text-red-600 text-2xl font-black">${r.title}</h4>
-                            <p class="text-slate-500 font-bold leading-tight">${r.sub}</p>
+                          <div class="rank-text-v6 pl-2">
+                            <h4 class="text-red-600 text-[28px] font-black leading-none mb-1 tracking-tighter">${r.title}</h4>
+                            <p class="text-slate-500 font-extrabold text-[14px] leading-tight opacity-90">${r.sub}</p>
                           </div>
                         </div>
                         
-                        <!-- Mini Vertical Chart -->
-                        <div class="flex items-end gap-3 pr-2 h-24 border-l-2 border-slate-100 pl-8 ml-4 relative">
-                           <span class="absolute top-[-15px] right-0 text-[9px] font-black text-slate-500 uppercase tracking-tighter">Estrés Hídrico LA&C</span>
+                        <!-- Nueva Propuesta Gráfica (Barras Horizontales Premium) -->
+                        <div class="flex flex-col justify-center gap-3 w-64 ml-auto pl-6 border-l border-slate-100 relative">
+                           <div class="flex items-center justify-between mb-1">
+                             <span class="text-[9px] font-black text-slate-400 uppercase tracking-widest">Estrés Hídrico en LA&C</span>
+                           </div>
+                           
                            ${c.chart.items.map(item => `
-                             <div class="flex flex-col items-center gap-1 group">
-                               <div class="w-6 bg-[#002060] rounded-sm flex items-center justify-center relative transition-all group-hover:bg-blue-800" style="height: ${(item.value / 4.47) * 70}px">
-                                 <span class="text-[8px] font-black text-white vertical-text absolute">${item.value.toFixed(2)}</span>
+                             <div class="relative group">
+                               <div class="flex justify-between items-baseline mb-1">
+                                 <span class="text-[9px] font-black uppercase tracking-wider ${item.country === 'Perú' ? 'text-red-600' : 'text-slate-500 group-hover:text-[#001740]'} transition-colors">${item.country}</span>
+                                 <span class="text-[10px] font-black ${item.country === 'Perú' ? 'text-red-600' : 'text-[#001740]'}">${item.value.toFixed(2)}</span>
                                </div>
-                               <span class="text-[8px] font-black text-slate-700 vertical-text uppercase">${item.country}</span>
+                               <div class="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden shadow-inner">
+                                 <div class="h-full rounded-full transition-all duration-700 shadow-sm ${item.country === 'Perú' ? 'bg-gradient-to-r from-red-600 to-red-400' : 'bg-gradient-to-r from-[#001740] to-blue-700'}" style="width: ${(item.value / 4.47) * 100}%"></div>
+                               </div>
                              </div>
                            `).join("")}
-                           <span class="absolute bottom-[-15px] left-6 text-[7px] font-bold text-slate-400">Fuente: (WRI) 2024</span>
+                           
+                           <div class="mt-1 text-right">
+                             <span class="text-[7px] font-bold text-slate-300 uppercase tracking-widest">Fuente: Data (WRI) 2024</span>
+                           </div>
                         </div>
                       </div>
                     `;
                   }
                   return `
-                    <div class="rank-card-v6 !py-4">
-                      <div class="rank-icon-circle-v6 bg-${r.color}-soft w-12 h-12">
-                        <i data-lucide="${r.icon}" class="w-7 h-7"></i>
+                    <div class="rank-card-v6 !py-3">
+                      <div class="rank-icon-circle-v6 bg-${r.color}-soft w-10 h-10">
+                        <i data-lucide="${r.icon}" class="w-6 h-6"></i>
                       </div>
                       <div class="rank-text-v6">
-                        <h4 class="text-${r.color}-rank text-xl">${r.title}</h4>
-                        <p class="text-base">${r.sub}</p>
+                        <h4 class="text-${r.color}-rank text-lg">${r.title}</h4>
+                        <p class="text-[14px] leading-tight">${r.sub}</p>
                       </div>
                     </div>
                   `;
@@ -377,33 +386,86 @@ class PresentationEngine {
 
   templateImplementation(c) {
     return `
-      <section class="global-slide-v8 reveal">
-        <header class="section-header-v8"><span class="section-label-v8">${c.label}</span><h2>${c.title}</h2></header>
-        <div class="mb-4"><span class="text-xs font-black text-blue-600 uppercase tracking-widest">${c.sub}</span></div>
-        <div class="grid grid-cols-12 gap-6 flex-grow relative">
-          <div class="col-span-12 md:col-span-6 flex flex-col gap-6 relative">
-            <div class="flex items-center gap-4 mb-2">
-              <div class="w-14 h-14 rounded-2xl bg-blue-600 flex items-center justify-center text-white border border-blue-400 shadow-xl"><i data-lucide="${c.phases[0].icon}" class="w-7 h-7"></i></div>
-              <div><h3 class="text-blue-700 font-black text-2xl uppercase tracking-tighter leading-none">${c.phases[0].title}</h3><p class="text-[10px] text-blue-500 font-bold tracking-[0.3em] uppercase mt-1">${c.phases[0].sub}</p></div>
+      <section class="global-slide-v8 reveal flex flex-col h-full">
+        <header class="section-header-v8 mb-4">
+          <span class="section-label-v8">${c.label}</span>
+          <h2 class="text-4xl font-black text-slate-900 tracking-tight">${c.title}</h2>
+          <p class="text-[12px] font-black text-blue-600 uppercase tracking-widest mt-1">${c.sub}</p>
+        </header>
+
+        <div class="grid grid-cols-2 gap-8 flex-grow">
+          <!-- Left Column (Fase de Activación / Ruta Inmediata) -->
+          <div class="flex flex-col gap-4">
+            <div class="flex items-center gap-3 mb-1">
+              <span class="text-white bg-blue-600 font-black text-lg w-10 h-10 flex flex-col justify-center items-center rounded-full shadow-md">01</span>
+              <h3 class="font-black text-blue-800 text-2xl uppercase tracking-tighter">${c.phases[0].sub}</h3>
             </div>
+            
             <div class="space-y-4">
-              ${c.phases[0].steps.map((s, i) => `<div class="group relative"><div class="absolute -left-2 top-0 bottom-0 w-1 bg-blue-${600 - i * 100} rounded-full"></div><div class="glass-module p-4 bg-gradient-to-r from-white to-blue-50/30 border-none shadow-md"><p class="text-[13px] font-black text-slate-800 leading-tight">${s}</p></div></div>`).join("")}
+              ${c.phases[0].steps.map((s, i) => `
+                <div class="glass-module p-4 border-l-4 border-blue-500 bg-white rounded-2xl shadow-sm hover:translate-x-1 transition-transform flex items-center gap-4">
+                  <div class="w-10 h-10 bg-blue-50 rounded-xl border border-blue-100 flex items-center justify-center shrink-0">
+                    <i data-lucide="file-check" class="w-5 h-5 text-blue-500"></i>
+                  </div>
+                  <p class="text-[14px] font-bold text-slate-700 leading-tight">${s}</p>
+                </div>
+              `).join("")}
             </div>
           </div>
-          <div class="col-span-12 md:col-span-6 flex flex-col gap-6 relative">
-            <div class="flex items-center gap-4 mb-2">
-              <div class="w-14 h-14 rounded-2xl bg-indigo-600 flex items-center justify-center text-white border border-indigo-400 shadow-xl"><i data-lucide="${c.phases[1].icon}" class="w-7 h-7"></i></div>
-              <div><h3 class="text-indigo-700 font-black text-2xl uppercase tracking-tighter leading-none">${c.phases[1].title}</h3><p class="text-[10px] text-indigo-500 font-bold tracking-[0.3em] uppercase mt-1">${c.phases[1].sub}</p></div>
+
+          <!-- Right Column (Consolidación / Próximos Pasos Clave) -->
+          <div class="flex flex-col gap-4">
+            <div class="flex items-center gap-3 mb-1">
+              <span class="text-white bg-indigo-600 font-black text-lg w-10 h-10 flex flex-col justify-center items-center rounded-full shadow-md">02</span>
+              <h3 class="font-black text-indigo-800 text-2xl uppercase tracking-tighter">${c.phases[1].sub}</h3>
             </div>
-            <div class="space-y-3">
-               <div class="glass-module p-4 bg-indigo-900 text-white shadow-lg border-none"><div class="flex gap-4 items-center"><div class="p-2 bg-white/10 rounded-lg"><i data-lucide="${c.phases[1].highlight.icon}" class="w-5 h-5"></i></div><p class="text-[13px] font-extrabold leading-tight uppercase tracking-wide">${c.phases[1].highlight.title}<br /><span class="text-indigo-300">${c.phases[1].highlight.sub}</span></p></div></div>
-               <div class="glass-module p-4 bg-slate-900 text-white border-none shadow-2xl relative overflow-hidden">
-                <p class="text-[13px] font-black uppercase tracking-widest text-indigo-400 mb-2">${c.phases[1].alignment.title}</p>
-                <div class="grid grid-cols-1 gap-2 text-[11px] text-slate-300 font-bold">
-                  ${c.phases[1].alignment.items.map(ai => `<div class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-${ai.color}-500 rounded-full"></span> ${ai.label}</div>`).join("")}
+            
+            <div class="space-y-4">
+              <!-- Highlight Card -->
+              <div class="glass-module p-4 border-l-4 border-indigo-500 bg-white rounded-2xl shadow-sm hover:translate-x-1 transition-transform flex items-center gap-4">
+                <div class="w-10 h-10 bg-indigo-50 rounded-xl border border-indigo-100 flex items-center justify-center shrink-0">
+                  <i data-lucide="${c.phases[1].highlight.icon}" class="w-5 h-5 text-indigo-500"></i>
                 </div>
-               </div>
+                <div>
+                  <h4 class="text-[14px] font-black text-slate-900 leading-none mb-1">${c.phases[1].highlight.title}</h4>
+                  <p class="text-[13px] font-bold text-slate-500">${c.phases[1].highlight.sub}</p>
+                </div>
+              </div>
+
+              <!-- Alignment Box (Dark) -->
+              <div class="glass-module p-6 bg-slate-900 text-white rounded-2xl shadow-lg border-none mt-2">
+                <div class="flex items-center gap-3 border-b border-slate-700 pb-3 mb-4">
+                  <div class="p-2 bg-slate-800 rounded-lg"><i data-lucide="settings" class="w-5 h-5 text-indigo-400"></i></div>
+                  <h4 class="font-black text-white text-[15px] uppercase tracking-wider">${c.phases[1].alignment.title}</h4>
+                </div>
+                <ul class="space-y-3">
+                  ${c.phases[1].alignment.items.map(ai => `
+                    <li class="flex items-center gap-3">
+                      <i data-lucide="check-circle-2" class="w-4 h-4 text-indigo-400"></i>
+                      <span class="text-[14px] font-bold text-slate-200">${ai.label}</span>
+                    </li>
+                  `).join("")}
+                </ul>
+              </div>
             </div>
+          </div>
+        </div>
+
+        <!-- Footer Notice / Bottom Row -->
+        <div class="mt-8 flex items-stretch gap-6 h-[80px]">
+          <!-- Blue Quote Box -->
+          <div class="bg-[#1a237e] rounded-2xl flex items-center justify-center px-6 min-w-[320px] shadow-lg relative overflow-hidden shrink-0">
+             <div class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white/10 to-transparent"></div>
+             <p class="text-[13px] font-black text-white text-center leading-tight tracking-wide">${c.footer_quote.replace(/"/g, '')}</p>
+          </div>
+          <!-- White Info Box -->
+          <div class="bg-white border border-slate-200 rounded-2xl shadow-sm flex items-center p-4 gap-4 flex-grow">
+            <div class="w-10 h-10 shrink-0 bg-blue-50 text-blue-500 border border-blue-100 rounded-xl flex items-center justify-center">
+              <i data-lucide="compass" class="w-5 h-5"></i>
+            </div>
+            <p class="text-[13.5px] font-bold text-slate-600 leading-snug">
+              ${c.final_desc}
+            </p>
           </div>
         </div>
       </section>
@@ -414,14 +476,49 @@ class PresentationEngine {
     return `
       <section class="global-slide-v8 reveal">
         <header class="section-header-v8"><span class="section-label-v8">${c.label}</span><h2>${c.title}</h2></header>
-        <div class="glass-module p-6 overflow-y-auto max-h-[70vh] flex-grow">
-          <ul class="space-y-4">
-            ${c.sources.map(s => `
-              <li class="text-xs font-medium text-slate-700 leading-relaxed border-b border-slate-100 pb-3">
-                ${s.text} <a href="${s.url}" target="_blank" class="text-blue-600 hover:underline break-all">${s.url}</a>
-              </li>
-            `).join("")}
-          </ul>
+        
+        <div class="glass-module p-6 overflow-y-auto max-h-[70vh] flex-grow custom-scrollbar">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            ${c.sources.map((s, i) => {
+              // Extract a simplistic "Source type" from text
+              const isPDF = s.url.toLowerCase().includes('.pdf');
+              const isNews = s.text.toLowerCase().includes('comercio') || s.text.toLowerCase().includes('energiminas');
+              const isOfficial = s.text.toLowerCase().includes('defensor') || s.text.toLowerCase().includes('inei');
+              
+              let icon = "book-open";
+              let color = "blue";
+              if (isPDF) { icon = "file-text"; color = "indigo"; }
+              if (isNews) { icon = "newspaper"; color = "orange"; }
+              if (isOfficial) { icon = "landmark"; color = "emerald"; }
+
+              return `
+              <a href="${s.url}" target="_blank" class="group flex items-start gap-4 p-5 bg-white border border-slate-200 rounded-2xl shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-${color}-300 relative overflow-hidden text-left">
+                <!-- Background decoration on hover -->
+                <div class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-${color}-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                
+                <!-- Icon Box -->
+                <div class="shrink-0 w-12 h-12 bg-slate-50 border border-slate-100 rounded-xl flex items-center justify-center group-hover:bg-${color}-50 group-hover:border-${color}-200 transition-colors duration-300">
+                  <i data-lucide="${icon}" class="w-6 h-6 text-slate-400 group-hover:text-${color}-600 transition-colors duration-300"></i>
+                </div>
+                
+                <!-- Text Content -->
+                <div class="flex-grow pt-1 relative z-10 w-full min-w-0 pr-6">
+                  <h4 class="text-[12px] font-black text-slate-700 leading-relaxed mb-1.5 group-hover:text-${color}-900 transition-colors">
+                    ${s.text}
+                  </h4>
+                  <div class="text-[10px] font-bold text-slate-400 group-hover:text-${color}-600 transition-colors break-all">
+                    ${s.url}
+                  </div>
+                </div>
+                
+                <!-- Arrow Icon -->
+                <div class="absolute right-4 top-4 text-slate-300 opacity-0 transform translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
+                  <i data-lucide="external-link" class="w-4 h-4 text-${color}-500"></i>
+                </div>
+              </a>
+            `;
+            }).join("")}
+          </div>
         </div>
       </section>
     `;

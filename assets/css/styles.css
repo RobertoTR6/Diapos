@@ -428,14 +428,14 @@ body {
 .identical-card {
   background: white;
   border-radius: 1.5rem;
-  padding: 1.5rem 2rem;
+  padding: 1.25rem 1.5rem;
   position: relative;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 130px;
+  min-height: 110px;
 }
 
 .identical-card::before {
@@ -450,6 +450,24 @@ body {
 
 .card-red::before {
   background: #dc2626;
+}
+
+@keyframes pulseAlertRed {
+  0% {
+    box-shadow: 0 10px 25px rgba(220, 38, 38, 0.05);
+  }
+  50% {
+    box-shadow: 0 10px 40px rgba(220, 38, 38, 0.4);
+    border-color: rgba(220, 38, 38, 0.3);
+  }
+  100% {
+    box-shadow: 0 10px 25px rgba(220, 38, 38, 0.05);
+  }
+}
+
+.alert-pulse {
+  animation: pulseAlertRed 2.5s infinite ease-in-out;
+  border: 1px solid transparent; /* para que no salte el borde en la animación */
 }
 
 .card-orange::before {

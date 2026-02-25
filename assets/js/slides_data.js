@@ -27,7 +27,7 @@ const SLIDES_DATA = [
       subtitle: "QUE AFECTA A MILLONES DE USUARIOS",
       metrics: [
         { label: "PERSONAS SIN ACCESO ADECUADO", value: "11", unit: "Millones", sub: "sin acceso adecuado a <strong>agua potable</strong>", color: "red" },
-        { label: "NIVEL DE RIESGO HÍDRICO", value: "3.72", unit: "", sub: "indicador nacional de <strong>calidad y disponibilidad</strong>", color: "orange" }
+        { label: "NIVEL DE RIESGO HÍDRICO", value: "3.7", unit: "", sub: "indicador nacional de <strong>calidad y disponibilidad</strong>", color: "orange" }
       ],
       rankings: [
         { icon: "globe", title: "Entre los 32", sub: "países más críticos<br />del mundo", color: "orange" },
